@@ -1,0 +1,5 @@
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DTO\bin\Debug\DTO.dll
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DTO\bin\Debug\DTO.pdb
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DTO\obj\Debug\DTO.dll
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DTO\obj\Debug\DTO.pdb

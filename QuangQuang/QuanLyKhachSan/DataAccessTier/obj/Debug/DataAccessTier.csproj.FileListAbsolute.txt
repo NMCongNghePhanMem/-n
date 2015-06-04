@@ -1,0 +1,7 @@
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.dll
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.pdb
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\bin\Debug\DTO.dll
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\bin\Debug\DTO.pdb
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.csprojResolveAssemblyReference.cache
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.dll
+C:\Users\Quang Quang\documents\visual studio 2013\Projects\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.pdb
