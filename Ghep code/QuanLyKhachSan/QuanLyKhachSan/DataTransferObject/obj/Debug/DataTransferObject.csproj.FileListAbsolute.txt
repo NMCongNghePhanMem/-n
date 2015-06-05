@@ -1,0 +1,5 @@
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataTransferObject\bin\Debug\DataTransferObject.dll
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataTransferObject\bin\Debug\DataTransferObject.pdb
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataTransferObject\obj\Debug\DataTransferObject.csprojResolveAssemblyReference.cache
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataTransferObject\obj\Debug\DataTransferObject.dll
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataTransferObject\obj\Debug\DataTransferObject.pdb

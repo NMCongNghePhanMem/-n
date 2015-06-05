@@ -1,0 +1,7 @@
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.dll
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.pdb
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataTransferObject.dll
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataTransferObject.pdb
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.csprojResolveAssemblyReference.cache
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.dll
+E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.pdb
