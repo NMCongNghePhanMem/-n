@@ -1,9 +1,0 @@
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\BusinessLogicTier.dll
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\BusinessLogicTier.pdb
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataAccessTier.dll
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataTransferObject.dll
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataAccessTier.pdb
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataTransferObject.pdb
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.csprojResolveAssemblyReference.cache
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.dll
-E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.pdb
