@@ -68,10 +68,12 @@ namespace QuanLyKhachSan
             txtTriGia.DataBindings.Add("Text", dtHoaDon, "TongChiTietThanhToan");
             if (cboMaHoaDon.Text.Length > 0)
                 groupBox2.Enabled = true;
+            temptTongChiTietThanhToan = float.Parse(txtTriGia.Text);
         }
 
         private void btnThemHD_Click(object sender, EventArgs e)
         {
+            temptTongChiTietThanhToan = 0;
             txtKhachHang.Text = txtDiaChi.Text = txtTriGia.Text = "";
             btnLuuHD.Enabled = true;
             txtKhachHang.Enabled = txtDiaChi.Enabled = dateTimePicker1.Enabled = true;
@@ -136,8 +138,15 @@ namespace QuanLyKhachSan
                     }
                     if (PhieuThueVaPhongDaXoa[i].maPhong.Equals(dataGridView1.CurrentRow.Cells[1].Value.ToString()) == true)
                     {
-                        objChiTietHoaDon.XoaChiTietHoaDon(cboMaHoaDon.Text, PhieuThueVaPhongDaXoa[i].maPhieuThue);
-                        break;
+                        // gán lại giá trị
+                        dataGridView1.CurrentRow.Cells[2].Value = PhieuThueVaPhongDaXoa[i].soNgayThue;
+                        dataGridView1.CurrentRow.Cells[3].Value = PhieuThueVaPhongDaXoa[i].donGia;
+                        dataGridView1.CurrentRow.Cells[4].Value = PhieuThueVaPhongDaXoa[i].thanhTien;
+                        dataGridView1.CurrentRow.Cells[5].Value = PhieuThueVaPhongDaXoa[i].maPhieuThue;
+
+                        temptTongChiTietThanhToan += float.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                        txtTriGia.Text = temptTongChiTietThanhToan.ToString();
+                        return;
                     }
                 }
                 maPhieuThue = objChiTietHoaDon.MaPhieuThueKhongTonTaiCTHD(dataGridView1.CurrentRow.Cells[1].Value.ToString(), dateTimePicker1.Value);
@@ -172,18 +181,18 @@ namespace QuanLyKhachSan
                 dataGridView1.CurrentRow.Cells[3].Value = objChiTietHoaDon.DonGia(cthd.MaHoaDon, maPhieuThue);
                 dataGridView1.CurrentRow.Cells[4].Value = (int)dataGridView1.CurrentRow.Cells[2].Value * Decimal.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
                 dataGridView1.CurrentRow.Cells[5].Value = maPhieuThue;
-                for (int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
-                    // những má hóa đơn có trong list PhieuThuePhongVaPhongDaXoa thì không xóa khỏi database
-                    if (PhieuThueVaPhongDaXoa[i].maPhieuThue.Contains(cthd.MaPhieuThue) == false)
-                    {
-                        objChiTietHoaDon.XoaChiTietHoaDon(cthd.MaHoaDon, maPhieuThue);
-                        break;
-                    }
-                if (PhieuThueVaPhongDaXoa.Count == 0)
-                    objChiTietHoaDon.XoaChiTietHoaDon(cthd.MaHoaDon, maPhieuThue);
+                //for (int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
+                //    // những má hóa đơn có trong list PhieuThuePhongVaPhongDaXoa thì không xóa khỏi database
+                //    if (PhieuThueVaPhongDaXoa[i].maPhieuThue.Contains(cthd.MaPhieuThue) == false)
+                //    {
+                objChiTietHoaDon.XoaChiTietHoaDon(cthd.MaHoaDon, maPhieuThue);
+                //    break;
+                //}
+                //if (PhieuThueVaPhongDaXoa.Count == 0)
+                //    objChiTietHoaDon.XoaChiTietHoaDon(cthd.MaHoaDon, maPhieuThue);
 
-                hd.TongChiTietThanhToan += float.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-                txtTriGia.Text = hd.TongChiTietThanhToan.ToString();
+                temptTongChiTietThanhToan += float.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                txtTriGia.Text = temptTongChiTietThanhToan.ToString();
             }
         }
 
@@ -213,11 +222,17 @@ namespace QuanLyKhachSan
             }
             stt = 1;
             btnXoaCTHD.Enabled = true;
+            if (dataGridView1.Rows.Count == 1)
+            {
+                btnXoaCTHD.Enabled = false;
+            }
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             dataGridView1.Rows[e.RowIndex].Cells[0].Value = e.RowIndex + 1;
+            if (txtTriGia.Text != "")
+                temptTongChiTietThanhToan = float.Parse(txtTriGia.Text);
             //if(dataGridView1.Rows[e.RowIndex].Cells[4].Value != null)
             //{
             //    temptTongChiTietThanhToan = float.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
@@ -245,7 +260,12 @@ namespace QuanLyKhachSan
 
         private void btnLuuCTHD_Click(object sender, EventArgs e)
         {
-            hd.TongChiTietThanhToan = 0;
+            if (dataGridView1.Rows.Count == 1)
+            {
+                MessageBox.Show("Vui lòng nhập thông tin hóa đơn");
+                return;
+            }
+            temptTongChiTietThanhToan = 0;
             if (isThemHoaDon == true)
             {
                 try
@@ -258,13 +278,15 @@ namespace QuanLyKhachSan
                         cthd.SoNgayThue = int.Parse(dataGridView1.Rows[i].Cells[2].Value.ToString());
                         cthd.DonGia = float.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
                         cthd.ThanhTien = cthd.DonGia * cthd.SoNgayThue;
+
                         objChiTietHoaDon.ThemChiTietHoaDon(cthd);
                         //hd.TongChiTietThanhToan = float.Parse(txtTriGia.Text);
-                        hd.TongChiTietThanhToan += cthd.ThanhTien;
+                        temptTongChiTietThanhToan += cthd.ThanhTien;
 
+                        hd.TongChiTietThanhToan = temptTongChiTietThanhToan;
                         objHoaDon.CapNhatHoaDon(hd);
                     }
-                    txtTriGia.Text = hd.TongChiTietThanhToan.ToString();
+                    txtTriGia.Text = temptTongChiTietThanhToan.ToString();
                     MessageBox.Show("Thêm cthd thành công.");
                 }
                 catch (Exception ex)
@@ -290,11 +312,26 @@ namespace QuanLyKhachSan
                         cthd.DonGia = float.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
                         cthd.ThanhTien = cthd.DonGia * cthd.SoNgayThue;
                         objChiTietHoaDon.ThemChiTietHoaDon(cthd);
+                        //{
+                        //    MessageBox.Show("Có lỗi xảy ra, không lưu được.");
+                        //    return;
+                        //}
                         // hd.TongChiTietThanhToan = float.Parse(txtTriGia.Text);
-                        hd.TongChiTietThanhToan += cthd.ThanhTien;
-                        objHoaDon.CapNhatHoaDon(hd);
+                        temptTongChiTietThanhToan += cthd.ThanhTien;
+
+                        hd.MaHoaDon = cboMaHoaDon.Text;
+                        hd.NgayThanhToan = dateTimePicker1.Value;
+                        hd.TenKhachHang = txtKhachHang.Text;
+                        hd.DiaChi = txtDiaChi.Text;
+                        hd.TongChiTietThanhToan = temptTongChiTietThanhToan;
+
+                        if (!objHoaDon.CapNhatHoaDon(hd))
+                        {
+                            MessageBox.Show("Có lỗi xảy ra, không lưu được.");
+                            return;
+                        }
                     }
-                    txtTriGia.Text = hd.TongChiTietThanhToan.ToString();
+                    txtTriGia.Text = temptTongChiTietThanhToan.ToString();
                     MessageBox.Show("Cập nhật cthd thành công.");
                 }
                 catch (Exception ex)
@@ -302,14 +339,26 @@ namespace QuanLyKhachSan
                     MessageBox.Show(ex.Message);
                 }
             }
+            btnXoaCTHD.Enabled = true;
         }
 
         private void btnXoaCTHD_Click(object sender, EventArgs e)
         {
             objChiTietHoaDon.XoaTatCaChiTietHoaDon(cboMaHoaDon.Text);
             txtTriGia.Text = "";
+
+            hd.MaHoaDon = cboMaHoaDon.Text;
+            hd.NgayThanhToan = dateTimePicker1.Value;
+            hd.TenKhachHang = txtKhachHang.Text;
+            hd.DiaChi = txtDiaChi.Text;
+            hd.TongChiTietThanhToan = 0;
+
+            objHoaDon.CapNhatHoaDon(hd);
             dataGridView1.DataSource = null;
             dataGridView1.Rows.Clear();
+
+            dtHoaDon = objHoaDon.LayHoaDonNgayHienTai();
+            cboMaHoaDon.DataSource = dtHoaDon;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -317,27 +366,21 @@ namespace QuanLyKhachSan
             this.Close();
         }
 
-        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            // khi xoa dong -> xoa chi tiet hoa don voi ung voi ma hoa don va ma hoa don tuong ung
-            //if(dataGridView1.Rows[e.RowIndex] != null)
-            if (txtTriGia.Text == "")
-                return;
-            txtTriGia.Text = (float.Parse(txtTriGia.Text) - temptTongChiTietThanhToan).ToString();
-            PhieuThueVaPhongDaXoa.Add(temptPhieuThueVaPhongDaXoa);
-            //objChiTietHoaDon.XoaChiTietHoaDon(cboMaHoaDon.Text, maPhieuThue);
-
-        }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Delete)
             {
-                if (dataGridView1.CurrentRow.Cells[4].Value != null)
+                if (dataGridView1.CurrentRow.Cells[4].Value.ToString() != "")
                 {
-                    temptTongChiTietThanhToan = float.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
                     temptPhieuThueVaPhongDaXoa.maPhong = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    temptPhieuThueVaPhongDaXoa.soNgayThue = int.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+                    temptPhieuThueVaPhongDaXoa.donGia = float.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+                    temptPhieuThueVaPhongDaXoa.thanhTien = float.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
                     temptPhieuThueVaPhongDaXoa.maPhieuThue = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    temptTongChiTietThanhToan -= float.Parse(dataGridView1.CurrentRow.Cells[4].Value.ToString());
+                    txtTriGia.Text = temptTongChiTietThanhToan.ToString();
+                    PhieuThueVaPhongDaXoa.Add(temptPhieuThueVaPhongDaXoa);
                 }
             }
         }
@@ -348,6 +391,9 @@ namespace QuanLyKhachSan
     {
         public string maPhieuThue;
         public string maPhong;
+        public int soNgayThue;
+        public float donGia;
+        public float thanhTien;
     }
 
 }
