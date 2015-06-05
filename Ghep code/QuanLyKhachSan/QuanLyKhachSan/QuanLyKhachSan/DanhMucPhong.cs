@@ -129,7 +129,6 @@ namespace QuanLyKhachSan
             string[] element = {STT.ToString(), idPhong, idLoaiPhong, donGia, ghiChu};
             ListViewItem lvi = new ListViewItem(element);
 
-            //Bd la color.lavenderblush
             lvi.BackColor = Color.LightPink;
             if (IsError(col_Phong.DisplayIndex, idPhong) == false)
             {
@@ -255,8 +254,6 @@ namespace QuanLyKhachSan
                 return;
             }
 
-            //Cap nhat lai 
-
             int stt = 0;
             if (m_TbPhong != null)
             {
@@ -285,24 +282,19 @@ namespace QuanLyKhachSan
         {
             m_IsSave = true;
             m_TbPhong = m_PhongObject.GetPhong();
-            int index = 0;
-            if (m_TbPhong == null)
+
+            for (int i = 0; i < lv_DanhMucPhong.Items.Count; i++)
             {
-                index = 0;
-            }
-            else
-            {
-                index = m_TbPhong.Rows.Count;
-            }
-            for (int i = index; i < lv_DanhMucPhong.Items.Count; i++)
-            {
-                PhongDTO phong = new PhongDTO();
-                phong.ID_Phong = lv_DanhMucPhong.Items[i].SubItems[col_Phong.DisplayIndex].Text;
-                phong.ID_LoaiPhong = lv_DanhMucPhong.Items[i].SubItems[col_LoaiPhong.DisplayIndex].Text;
-                phong.TinhTrangPhong = true;
-                phong.GhiChu = lv_DanhMucPhong.Items[i].SubItems[col_GhiChu.DisplayIndex].Text;
-                m_PhongObject.ThemPhong(phong);
-                lv_DanhMucPhong.Items[i].BackColor = Color.LavenderBlush;
+                if (lv_DanhMucPhong.Items[i].BackColor == Color.LightPink)
+                {
+                    PhongDTO phong = new PhongDTO();
+                    phong.ID_Phong = lv_DanhMucPhong.Items[i].SubItems[col_Phong.DisplayIndex].Text;
+                    phong.ID_LoaiPhong = lv_DanhMucPhong.Items[i].SubItems[col_LoaiPhong.DisplayIndex].Text;
+                    phong.TinhTrangPhong = true;
+                    phong.GhiChu = lv_DanhMucPhong.Items[i].SubItems[col_GhiChu.DisplayIndex].Text;
+                    m_PhongObject.ThemPhong(phong);
+                    lv_DanhMucPhong.Items[i].BackColor = Color.LavenderBlush; 
+                }
             }
             m_TbPhong = m_PhongObject.GetPhong();
         }

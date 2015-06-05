@@ -70,7 +70,7 @@
             this.comboBoxTinhTrang.Items.AddRange(new object[] {
             "Tất cả",
             "Đang thuê",
-            "Trống"});
+            "Chưa thuê"});
             this.comboBoxTinhTrang.Location = new System.Drawing.Point(66, 28);
             this.comboBoxTinhTrang.Name = "comboBoxTinhTrang";
             this.comboBoxTinhTrang.Size = new System.Drawing.Size(126, 21);
@@ -160,6 +160,7 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(10, 108);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -201,6 +202,8 @@
             this.ClientSize = new System.Drawing.Size(452, 341);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormTraCuuPhong";
             this.Text = "Tra Cứu Phòng";
             this.Load += new System.EventHandler(this.FormTraCuuPhong_Load);
