@@ -355,6 +355,8 @@
             this.Controls.Add(this.groupBoxLoaiPhong);
             this.Controls.Add(this.buttonHuyBo);
             this.Controls.Add(this.buttonLuu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormThayDoiQuyDinh";
             this.Text = "Thiết Lập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThayDoiQuyDinh_FormClosing);

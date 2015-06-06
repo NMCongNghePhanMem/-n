@@ -130,6 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ThayDoiQuyDinh.resx">
+      <DependentUpon>ThayDoiQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TraCuuPhong.resx">
       <DependentUpon>TraCuuPhong.cs</DependentUpon>
     </EmbeddedResource>
