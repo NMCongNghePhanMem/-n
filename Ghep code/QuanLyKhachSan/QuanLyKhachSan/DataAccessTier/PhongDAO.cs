@@ -164,6 +164,7 @@ namespace DataAccessTier
             {
                 connection.Close();
             }
+            connection.Close();
             return phong;
         }
 
@@ -186,6 +187,7 @@ namespace DataAccessTier
             {
                 connection.Close();
             }
+            connection.Close();
             return dt;
         }
 
@@ -219,6 +221,7 @@ namespace DataAccessTier
             {
                 connection.Close();
             }
+            connection.Close();
             return dt;
         }
 

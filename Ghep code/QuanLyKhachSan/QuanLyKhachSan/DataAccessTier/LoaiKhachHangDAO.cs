@@ -59,11 +59,13 @@ namespace DataAccessTier
                     loaiKhach.ID_LoaiKhachHang = reader["MaLoaiKhachHang"].ToString();
                     loaiKhach.TenLoaiKhachHang = reader["TenLoaiKhachHang"].ToString();
                 }
+                reader.Close();
             }
             catch (Exception)
             {
                 connection.Close();
             }
+            connection.Close();
             return loaiKhach;
         }
         public DataTable getDanhMucLoaiKhach()
@@ -78,14 +80,80 @@ namespace DataAccessTier
                 SqlCommand cmd = connection.CreateCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "GetDanhMucLoaiKhachHang";
-                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dt);
+                connection.Close();
             }catch(Exception)
             {
                 connection.Close();
             }
             return dt;
         }
-		
+        public SqlCommand themLoaiKhachCmd(string pID, string pLoaiKhach)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("ThemLoaiKhachHang", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ID", SqlDbType.VarChar, 10).Value = pID;
+                cmd.Parameters.Add("@TenLoaiKhach", SqlDbType.NVarChar, 50).Value = pLoaiKhach;
+                connection.Close();
+                return cmd;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return null;
+        }
+        //them loai khach
+        public SqlCommand xoaLoaiKhachCmd(string pID)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("XoaLoaiKhachHang", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiKhach", SqlDbType.VarChar, 10).Value = pID;
+                connection.Close();
+                return cmd;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return null;
+        }
+        //xoa loai khach
+        public SqlCommand capNhapLoaiKhachCmd(string pID, string pLoaiKhach)
+        {
+            {
+                try
+                {
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("CapNhapLoaiKhachHang", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@MaLoaiKhach", SqlDbType.VarChar, 10).Value = pID;
+                    cmd.Parameters.Add("@LoaiKhach", SqlDbType.NVarChar, 50).Value = pLoaiKhach;
+                    connection.Close();
+                    return cmd;
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                }
+                return null;
+            }
+        }
     }
 }

@@ -70,7 +70,7 @@ namespace DataAccessTier
     public class DBConnection
     {
         protected SqlConnection connection;
-        public string m_ConnectionString = "Data Source=NHONNGUYEN;Initial Catalog=QLKS;Integrated Security=True";
+        public string m_ConnectionString = "Data Source=WIN-KL7CA5972TF\\SQLEXPRESS;Initial Catalog=QUANLYKHACHSAN;Integrated Security=True";
 
         public DBConnection()
         {

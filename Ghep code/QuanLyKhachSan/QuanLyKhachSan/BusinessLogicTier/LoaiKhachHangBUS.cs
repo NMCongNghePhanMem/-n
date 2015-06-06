@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessTier;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace BusinessLogicTier
 {
@@ -20,6 +21,26 @@ namespace BusinessLogicTier
         public DataTable LayThongTinLoaiKH()
         {
             return m_KhachHang.LayThongTinLoaiKhachHang();
+        }
+        public DataTable getDanhMucLoaiKhach()
+        {
+            return m_KhachHang.getDanhMucLoaiKhach();
+        }
+        public DataTransferObject.LoaiKhachHangDTO getLoaiKhachByID(string pLoaiKhach)
+        {
+            return m_KhachHang.getLoaiKhachByID(pLoaiKhach);
+        }
+        public SqlCommand themLoaiKhach(string pID, string pLoaiKhach)
+        {
+            return m_KhachHang.themLoaiKhachCmd(pID, pLoaiKhach);
+        }
+        public SqlCommand xoaLoaiKhach(string pID)
+        {
+            return m_KhachHang.xoaLoaiKhachCmd(pID);
+        }
+        public SqlCommand capNhapLoaiKhach(string pID, string pLoaiKhach)
+        {
+            return m_KhachHang.capNhapLoaiKhachCmd(pID, pLoaiKhach);
         }
     }
 }

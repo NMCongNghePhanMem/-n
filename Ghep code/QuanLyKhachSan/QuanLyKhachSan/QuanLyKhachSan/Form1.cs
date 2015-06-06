@@ -27,7 +27,6 @@ namespace QuanLyKhachSan
                 msQuanLyPhong.Visible = false;
                 msThietLap.Visible = false;
                 msTaiChinh.Visible = false;
-                msQuanLy.Visible = false;
             }
         }
 
@@ -52,6 +51,18 @@ namespace QuanLyKhachSan
         private void lToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void msThietLap_Click(object sender, EventArgs e)
+        {
+            FormThayDoiQuyDinh formThayDoiQuyDinh = new FormThayDoiQuyDinh();
+            formThayDoiQuyDinh.ShowDialog();
+        }
+
+        private void msTraCuuPhong_Click(object sender, EventArgs e)
+        {
+            FormTraCuuPhong formTraCuuPhong = new FormTraCuuPhong();
+            formTraCuuPhong.ShowDialog();
         }
 
 

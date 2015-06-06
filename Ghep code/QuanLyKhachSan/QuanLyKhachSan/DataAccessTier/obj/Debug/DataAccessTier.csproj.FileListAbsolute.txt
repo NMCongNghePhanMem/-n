@@ -5,3 +5,10 @@ E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\
 E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.csprojResolveAssemblyReference.cache
 E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.dll
 E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataTransferObject.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataTransferObject.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.csprojResolveAssemblyReference.cache
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.pdb

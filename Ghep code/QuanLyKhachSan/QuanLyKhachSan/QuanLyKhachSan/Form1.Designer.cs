@@ -40,18 +40,7 @@
             this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoTheoLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoThang = new System.Windows.Forms.ToolStripMenuItem();
-            this.msQuanLy = new System.Windows.Forms.ToolStripMenuItem();
-            this.msQlLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
-            this.msThemLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
-            this.msXoaLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
-            this.msSuaLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
-            this.msQlLoaiKhach = new System.Windows.Forms.ToolStripMenuItem();
-            this.msThemLoaiKhach = new System.Windows.Forms.ToolStripMenuItem();
-            this.msXoaLoaiKhach = new System.Windows.Forms.ToolStripMenuItem();
-            this.msSuaLoaiKhach = new System.Windows.Forms.ToolStripMenuItem();
             this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
-            this.msSoKhachToiDa = new System.Windows.Forms.ToolStripMenuItem();
-            this.msSoKhachKhongPhuThu = new System.Windows.Forms.ToolStripMenuItem();
             this.msQuanLyKhachSan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +52,6 @@
             this.msPhong,
             this.msPhieuThuePhong,
             this.msTaiChinh,
-            this.msQuanLy,
             this.msThietLap});
             this.msQuanLyKhachSan.Location = new System.Drawing.Point(0, 0);
             this.msQuanLyKhachSan.Name = "msQuanLyKhachSan";
@@ -83,15 +71,16 @@
             // msQuanLyPhong
             // 
             this.msQuanLyPhong.Name = "msQuanLyPhong";
-            this.msQuanLyPhong.Size = new System.Drawing.Size(138, 26);
+            this.msQuanLyPhong.Size = new System.Drawing.Size(137, 26);
             this.msQuanLyPhong.Text = "Quản Lý";
             this.msQuanLyPhong.Click += new System.EventHandler(this.msQuanLyPhong_Click);
             // 
             // msTraCuuPhong
             // 
             this.msTraCuuPhong.Name = "msTraCuuPhong";
-            this.msTraCuuPhong.Size = new System.Drawing.Size(138, 26);
+            this.msTraCuuPhong.Size = new System.Drawing.Size(152, 26);
             this.msTraCuuPhong.Text = "Tra Cứu";
+            this.msTraCuuPhong.Click += new System.EventHandler(this.msTraCuuPhong_Click);
             // 
             // msPhieuThuePhong
             // 
@@ -105,7 +94,7 @@
             // msTaoPTP
             // 
             this.msTaoPTP.Name = "msTaoPTP";
-            this.msTaoPTP.Size = new System.Drawing.Size(152, 26);
+            this.msTaoPTP.Size = new System.Drawing.Size(192, 26);
             this.msTaoPTP.Text = "Tạo Mới";
             this.msTaoPTP.Click += new System.EventHandler(this.msTaoPTP_Click);
             // 
@@ -122,7 +111,7 @@
             this.msHoaDon,
             this.msBaoCaoTheoLoaiPhong});
             this.msTaiChinh.Name = "msTaiChinh";
-            this.msTaiChinh.Size = new System.Drawing.Size(87, 25);
+            this.msTaiChinh.Size = new System.Drawing.Size(85, 25);
             this.msTaiChinh.Text = "Tài Chính";
             // 
             // msHoaDon
@@ -154,93 +143,12 @@
             this.msBaoCaoThang.Size = new System.Drawing.Size(123, 26);
             this.msBaoCaoThang.Text = "Tháng";
             // 
-            // msQuanLy
-            // 
-            this.msQuanLy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msQlLoaiPhong,
-            this.msQlLoaiKhach});
-            this.msQuanLy.Name = "msQuanLy";
-            this.msQuanLy.Size = new System.Drawing.Size(80, 25);
-            this.msQuanLy.Text = "Quản Lý";
-            // 
-            // msQlLoaiPhong
-            // 
-            this.msQlLoaiPhong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msThemLoaiPhong,
-            this.msXoaLoaiPhong,
-            this.msSuaLoaiPhong});
-            this.msQlLoaiPhong.Name = "msQlLoaiPhong";
-            this.msQlLoaiPhong.Size = new System.Drawing.Size(158, 26);
-            this.msQlLoaiPhong.Text = "Loại Phòng";
-            // 
-            // msThemLoaiPhong
-            // 
-            this.msThemLoaiPhong.Name = "msThemLoaiPhong";
-            this.msThemLoaiPhong.Size = new System.Drawing.Size(119, 26);
-            this.msThemLoaiPhong.Text = "Thêm";
-            // 
-            // msXoaLoaiPhong
-            // 
-            this.msXoaLoaiPhong.Name = "msXoaLoaiPhong";
-            this.msXoaLoaiPhong.Size = new System.Drawing.Size(119, 26);
-            this.msXoaLoaiPhong.Text = "Xóa";
-            // 
-            // msSuaLoaiPhong
-            // 
-            this.msSuaLoaiPhong.Name = "msSuaLoaiPhong";
-            this.msSuaLoaiPhong.Size = new System.Drawing.Size(119, 26);
-            this.msSuaLoaiPhong.Text = "Sửa";
-            // 
-            // msQlLoaiKhach
-            // 
-            this.msQlLoaiKhach.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msThemLoaiKhach,
-            this.msXoaLoaiKhach,
-            this.msSuaLoaiKhach});
-            this.msQlLoaiKhach.Name = "msQlLoaiKhach";
-            this.msQlLoaiKhach.Size = new System.Drawing.Size(158, 26);
-            this.msQlLoaiKhach.Text = "Loại Khách";
-            // 
-            // msThemLoaiKhach
-            // 
-            this.msThemLoaiKhach.Name = "msThemLoaiKhach";
-            this.msThemLoaiKhach.Size = new System.Drawing.Size(119, 26);
-            this.msThemLoaiKhach.Text = "Thêm";
-            // 
-            // msXoaLoaiKhach
-            // 
-            this.msXoaLoaiKhach.Name = "msXoaLoaiKhach";
-            this.msXoaLoaiKhach.Size = new System.Drawing.Size(119, 26);
-            this.msXoaLoaiKhach.Text = "Xóa";
-            // 
-            // msSuaLoaiKhach
-            // 
-            this.msSuaLoaiKhach.Name = "msSuaLoaiKhach";
-            this.msSuaLoaiKhach.Size = new System.Drawing.Size(119, 26);
-            this.msSuaLoaiKhach.Text = "Sửa";
-            // 
             // msThietLap
             // 
-            this.msThietLap.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msSoKhachToiDa,
-            this.msSoKhachKhongPhuThu});
             this.msThietLap.Name = "msThietLap";
             this.msThietLap.Size = new System.Drawing.Size(85, 25);
             this.msThietLap.Text = "Thiết Lập";
-            // 
-            // msSoKhachToiDa
-            // 
-            this.msSoKhachToiDa.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.msSoKhachToiDa.Name = "msSoKhachToiDa";
-            this.msSoKhachToiDa.Size = new System.Drawing.Size(264, 24);
-            this.msSoKhachToiDa.Text = "Số Khách Tối Đa";
-            // 
-            // msSoKhachKhongPhuThu
-            // 
-            this.msSoKhachKhongPhuThu.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.msSoKhachKhongPhuThu.Name = "msSoKhachKhongPhuThu";
-            this.msSoKhachKhongPhuThu.Size = new System.Drawing.Size(264, 24);
-            this.msSoKhachKhongPhuThu.Text = "Số Khách Không Tính Phụ Thu";
+            this.msThietLap.Click += new System.EventHandler(this.msThietLap_Click);
             // 
             // MainForm
             // 
@@ -272,17 +180,6 @@
         private System.Windows.Forms.ToolStripMenuItem msHoaDon;
         private System.Windows.Forms.ToolStripMenuItem msBaoCaoTheoLoaiPhong;
         private System.Windows.Forms.ToolStripMenuItem msThietLap;
-        private System.Windows.Forms.ToolStripMenuItem msSoKhachToiDa;
-        private System.Windows.Forms.ToolStripMenuItem msSoKhachKhongPhuThu;
-        private System.Windows.Forms.ToolStripMenuItem msQuanLy;
-        private System.Windows.Forms.ToolStripMenuItem msQlLoaiPhong;
-        private System.Windows.Forms.ToolStripMenuItem msThemLoaiPhong;
-        private System.Windows.Forms.ToolStripMenuItem msXoaLoaiPhong;
-        private System.Windows.Forms.ToolStripMenuItem msSuaLoaiPhong;
-        private System.Windows.Forms.ToolStripMenuItem msQlLoaiKhach;
-        private System.Windows.Forms.ToolStripMenuItem msThemLoaiKhach;
-        private System.Windows.Forms.ToolStripMenuItem msXoaLoaiKhach;
-        private System.Windows.Forms.ToolStripMenuItem msSuaLoaiKhach;
         private System.Windows.Forms.ToolStripMenuItem msBaoCaoThang;
         private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
     }

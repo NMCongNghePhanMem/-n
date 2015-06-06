@@ -7,3 +7,12 @@ E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTi
 E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.csprojResolveAssemblyReference.cache
 E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.dll
 E:\GitHub Resource\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\BusinessLogicTier.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\BusinessLogicTier.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataAccessTier.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataTransferObject.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataAccessTier.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\bin\Debug\DataTransferObject.pdb
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.csprojResolveAssemblyReference.cache
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.dll
+D:\Project\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\BusinessLogicTier\obj\Debug\BusinessLogicTier.pdb

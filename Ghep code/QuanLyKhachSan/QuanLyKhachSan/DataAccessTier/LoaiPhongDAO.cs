@@ -60,7 +60,8 @@ namespace DataAccessTier
                     loaiPhong.ID_LoaiPhong = rd["MaLoaiPhong"].ToString();
                     loaiPhong.DonGia = int.Parse(rd["DonGia"].ToString());
                 }
-               
+                rd.Close();
+                connection.Close();
             }
             catch (Exception)
             {
@@ -87,6 +88,7 @@ namespace DataAccessTier
             {
                 connection.Close(); 
             }
+            connection.Close();
             return dt;
         }
         public int getDonGiaLonNhat()
@@ -110,7 +112,140 @@ namespace DataAccessTier
             {
                 connection.Close();
             }
+            connection.Close();
             return max;
+        }
+        public int themLoaiPhong(string pMaLoaiPhong, int pDonGia)//return rows effected
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("ThemLoaiPhong", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiPhong", SqlDbType.VarChar, 10).Value = pMaLoaiPhong;
+                cmd.Parameters.Add("@DonGia", SqlDbType.Money).Value = pDonGia;
+                int rowsEffected = cmd.ExecuteNonQuery();
+                connection.Close();
+                return rowsEffected;
+
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return 0;
+        }
+        public SqlCommand themLoaiPhongCmd(string pMaLoaiPhong, int pDonGia)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("ThemLoaiPhong", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiPhong", SqlDbType.VarChar, 10).Value = pMaLoaiPhong;
+                cmd.Parameters.Add("@DonGia", SqlDbType.Money).Value = pDonGia;
+                connection.Close();
+                return cmd;
+
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return null;
+        }
+        public int xoaLoaiPhong(string pMaLoaiPhong)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("XoaLoaiPhong", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiPhong", SqlDbType.VarChar, 10).Value = pMaLoaiPhong;
+                connection.Close();
+                return cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return 0;
+        }
+        public SqlCommand xoaLoaiPhongCmd(string pMaLoaiPhong)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("XoaLoaiPhong", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiPhong", SqlDbType.VarChar, 10).Value = pMaLoaiPhong;
+                connection.Close();
+                return cmd;
+
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return null;
+        }
+        public int capNhapDonGia(string pMaLoaiPhong, int pDonGia)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("CapNhapDonGia", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiPhong", SqlDbType.VarChar, 10).Value = pMaLoaiPhong;
+                cmd.Parameters.Add("@DonGia", SqlDbType.Money).Value = pDonGia;
+                int rowsEffected = cmd.ExecuteNonQuery();
+                connection.Close();
+                return rowsEffected;
+
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return 0;
+        }
+        public SqlCommand capNhapDonGiaCmd(string pMaLoaiPhong, int pDonGia)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand cmd = new SqlCommand("CapNhapDonGia", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@MaLoaiPhong", SqlDbType.VarChar, 10).Value = pMaLoaiPhong;
+                cmd.Parameters.Add("@DonGia", SqlDbType.Money).Value = pDonGia;
+                connection.Close();
+                return cmd;
+
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return null;
         }
     }
 }
