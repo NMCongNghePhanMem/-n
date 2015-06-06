@@ -119,9 +119,9 @@
             this.comboBoxDonGia.FormattingEnabled = true;
             this.comboBoxDonGia.Items.AddRange(new object[] {
             "Tất cả",
-            "dưới 500k",
-            "500k->1000k",
-            "trên 1000k"});
+            "dưới 150k",
+            "150k->170k",
+            "trên 170k"});
             this.comboBoxDonGia.Location = new System.Drawing.Point(285, 29);
             this.comboBoxDonGia.Name = "comboBoxDonGia";
             this.comboBoxDonGia.Size = new System.Drawing.Size(126, 21);

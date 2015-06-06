@@ -62,7 +62,15 @@ namespace QuanLyKhachSan
                 lvItems.SubItems.Add(dt.Rows[i]["MaPhong"].ToString());
                 lvItems.SubItems.Add(dt.Rows[i]["MaLoaiPhong"].ToString());
                 lvItems.SubItems.Add(dt.Rows[i]["DonGia"].ToString());
-                lvItems.SubItems.Add(dt.Rows[i]["TinhTrangPhong"].ToString());
+
+                string tinhTrang = "";
+                if(bool.Parse(dt.Rows[i]["TinhTrangPhong"].ToString())==true){
+                    tinhTrang="Chưa Thuê";
+                }
+                else{
+                    tinhTrang ="Đang Thuê";
+                }
+                lvItems.SubItems.Add(tinhTrang);
                 this.listView1.Items.Add(lvItems);
 
             }
@@ -91,7 +99,7 @@ namespace QuanLyKhachSan
                 case "Đang thuê":
                     tinhTrang = false;
                     break;
-                case "Trông":
+                case "Trống":
                     tinhTrang = true;
                     break;
             }
@@ -100,16 +108,16 @@ namespace QuanLyKhachSan
             {
                 case "Tất cả":
                     break;
-                case "dưới 500k":
+                case "dưới 150k":
                     GiaTu = 0;
-                    GiaDen = 500000;
+                    GiaDen = 150000;
                     break;
-                case "500k->1000k":
-                    GiaTu = 500000;
-                    GiaDen = 1000000;
+                case "150k->170k":
+                    GiaTu = 150000;
+                    GiaDen = 170000;
                     break;
-                case "trên 1000k":
-                    GiaTu = 1000000;
+                case "trên 170k":
+                    GiaTu = 170000;
                     GiaDen = DON_GIA_CAO_NHAT;
                     break;
             }
