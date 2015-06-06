@@ -99,7 +99,7 @@ namespace QuanLyKhachSan
                 case "Đang thuê":
                     tinhTrang = false;
                     break;
-                case "Trống":
+                case "Chưa thuê":
                     tinhTrang = true;
                     break;
             }
@@ -117,7 +117,7 @@ namespace QuanLyKhachSan
                     GiaDen = 170000;
                     break;
                 case "trên 170k":
-                    GiaTu = 170000;
+                    GiaTu = 171000;
                     GiaDen = DON_GIA_CAO_NHAT;
                     break;
             }
