@@ -50,6 +50,11 @@ namespace BusinessLogicTier
             return objChiTietHoaDon.XoaTatCaChiTietHoaDon(maHoaDon);
         }
 
+         public bool CapNhatTinhTrangPhong(string maPhong, bool tinhTrangPhong)
+        {
+            return objChiTietHoaDon.CapNhatTinhTrangPhong(maPhong, tinhTrangPhong);
+        }
+
 
     }
 }

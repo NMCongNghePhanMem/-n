@@ -282,5 +282,32 @@ namespace DataAccessTier
             }
         }
 
+        public bool CapNhatTinhTrangPhong(string maPhong, bool tinhTrangPhong)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                    connection.Open();
+                command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "CapNhatTinhTrangPhong";
+                command.CommandType = CommandType.StoredProcedure;
+
+                parameter = new SqlParameter[2];
+                parameter[0] = new SqlParameter("@MaPhong", maPhong);
+                parameter[1] = new SqlParameter("@TinhTrangPhong", tinhTrangPhong);
+
+                command.Parameters.AddRange(parameter);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+                return false;
+            }
+        }
     }
 }

@@ -53,7 +53,6 @@
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cthdMaPhieuThue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
-            this.labelMaHoaDon = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -290,33 +289,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // labelMaHoaDon
-            // 
-            this.labelMaHoaDon.AutoSize = true;
-            this.labelMaHoaDon.Location = new System.Drawing.Point(42, 475);
-            this.labelMaHoaDon.Name = "labelMaHoaDon";
-            this.labelMaHoaDon.Size = new System.Drawing.Size(35, 13);
-            this.labelMaHoaDon.TabIndex = 18;
-            this.labelMaHoaDon.Text = "label6";
-            // 
             // FormLapHoaDonThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 500);
-            this.Controls.Add(this.labelMaHoaDon);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormLapHoaDonThanhToan";
             this.Text = "Hóa đơn thanh toán";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLapHoaDonThanhToan_FormClosing);
             this.Load += new System.EventHandler(this.FormHoaDonThanhToan_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -341,7 +330,6 @@
         private System.Windows.Forms.Button btnXoaCTHD;
         private System.Windows.Forms.Button btnLuuCTHD;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label labelMaHoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn aSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phong;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoNgayThue;
