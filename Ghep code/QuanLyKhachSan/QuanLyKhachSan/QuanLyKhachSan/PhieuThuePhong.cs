@@ -193,7 +193,9 @@ namespace QuanLyKhachSan
 
             string m_MaPhieu = m_PhieuThueObject.LayMaPhieuDuocThem();
 
-            m_PhieuThueObject.ThemPhieuThue(new PhieuThuePhongDTO("", cb_TenPhong.Text, DateTime.Now, LayDonGiaTuyTheoSoKhach(loaiPhong)));
+            DateTime m_DateRent = dateTimePicker1.Value;
+
+            m_PhieuThueObject.ThemPhieuThue(new PhieuThuePhongDTO("", cb_TenPhong.Text, m_DateRent, LayDonGiaTuyTheoSoKhach(loaiPhong)));
             
             for (int i = 0; i < dgvDanhSachKhach.Rows.Count; i++)
             {
