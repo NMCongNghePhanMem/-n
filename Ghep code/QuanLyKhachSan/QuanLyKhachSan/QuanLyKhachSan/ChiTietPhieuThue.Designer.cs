@@ -217,6 +217,7 @@
             this.dgv_ThongTinKhachHang.Size = new System.Drawing.Size(712, 137);
             this.dgv_ThongTinKhachHang.TabIndex = 31;
             this.dgv_ThongTinKhachHang.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgv_ThongTinKhachHang_RowStateChanged);
+            this.dgv_ThongTinKhachHang.Click += new System.EventHandler(this.dgv_ThongTinKhachHang_Click);
             // 
             // col_ThongTinKH_STT
             // 

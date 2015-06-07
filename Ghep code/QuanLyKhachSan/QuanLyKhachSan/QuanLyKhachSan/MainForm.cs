@@ -90,26 +90,6 @@ namespace QuanLyKhachSan
             formPhanQuyen.ShowDialog();
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.cs
-        private void msBaoCaoThang_Click(object sender, EventArgs e)
-        {
-            FormLapBaoCaoDoanThuTheoThang formLapBaoCao = new FormLapBaoCaoDoanThuTheoThang();
-            formLapBaoCao.ShowDialog();
-        }
-
-        private void traCứuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormTraCuuBaoCao formTraCuu = new FormTraCuuBaoCao();
-            formTraCuu.ShowDialog();
-        }
-
-=======
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.cs
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.cs
-=======
-
->>>>>>> e351063bc9d5536ed71edf8ec83af5889de7c0b1
 
     }
 }

@@ -91,5 +91,28 @@ namespace DataAccessTier
             }
             return false;
         }
+
+        public bool CapNhatDonGiaPTP(string _MaPhieu, float _donGia)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand command = new SqlCommand("CapNhatDonGia", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@MaPhieu", SqlDbType.VarChar).Value = _MaPhieu;
+                command.Parameters.Add("@DonGia", SqlDbType.Money).Value = _donGia;
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return false;
+        }
     }
 }

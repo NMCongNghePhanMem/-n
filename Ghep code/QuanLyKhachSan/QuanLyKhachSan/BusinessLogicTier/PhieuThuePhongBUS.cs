@@ -33,5 +33,10 @@ namespace BusinessLogicTier
             _phieuThuePhong.ID_PhieuThue = LayMaPhieuDuocThem();
             return m_PhieuThue.ThemPhieuThuePhong(_phieuThuePhong);
         }
+
+        public bool CapNhatDonGia(string _maPhieu, float _donGia)
+        {
+            return m_PhieuThue.CapNhatDonGiaPTP(_maPhieu, _donGia);
+        }
     }
 }

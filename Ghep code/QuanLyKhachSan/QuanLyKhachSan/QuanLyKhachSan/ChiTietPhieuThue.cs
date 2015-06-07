@@ -403,7 +403,6 @@ namespace QuanLyKhachSan
 
         private void bt_Sua_Click(object sender, EventArgs e)
         {
-
             if (m_MaPhongString == "")
             {
                 MessageBox.Show("Chưa chọn phòng cần sửa!", "Thông báo", MessageBoxButtons.OK);
@@ -438,9 +437,11 @@ namespace QuanLyKhachSan
                 return;
             }
 
+            m_PTPhongObject.CapNhatDonGia(m_MaPhieu, LayDonGiaTuyTheoSoKhach(LayLoaiPhong(m_MaPhongString)));
+
             for (int i = 0; i < dgv_DsPhieuThue.Rows.Count; i++)
             {
-                if (dgv_DsPhieuThue.Rows[i].Cells[col_DsPTP_Phong.DisplayIndex].Value == m_MaPhongString)
+                if (dgv_DsPhieuThue.Rows[i].Cells[col_DsPTP_Phong.DisplayIndex].Value.ToString() == m_MaPhongString)
                 {
                     dgv_DsPhieuThue.Rows[i].Cells[col_DsPTP_DonGia.DisplayIndex].Value = LayDonGiaTuyTheoSoKhach(LayLoaiPhong(m_MaPhongString)).ToString();
                 }
@@ -502,6 +503,18 @@ namespace QuanLyKhachSan
             for (int i = 0; i < dgv_ThongTinKhachHang.Rows.Count; i++)
             {
                 dgv_ThongTinKhachHang.Rows[i].Cells[col_ThongTinKH_STT.DisplayIndex].Value = (i + 1).ToString();
+            }
+        }
+
+        private void dgv_ThongTinKhachHang_Click(object sender, EventArgs e)
+        {
+            if (dgv_DsPhieuThue.Rows.Count <= 0)
+            {
+                bt_Sua.Enabled = false;
+            }
+            else
+            {
+                bt_Sua.Enabled = true;
             }
         }
 

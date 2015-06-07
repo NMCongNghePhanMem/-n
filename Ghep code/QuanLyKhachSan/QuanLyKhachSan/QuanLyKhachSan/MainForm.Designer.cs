@@ -78,19 +78,7 @@
             // 
             this.msQuanLyPhong.Name = "msQuanLyPhong";
             this.msQuanLyPhong.Size = new System.Drawing.Size(138, 26);
-<<<<<<< HEAD
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
-=======
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
-=======
             this.msQuanLyPhong.Size = new System.Drawing.Size(152, 26);
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
-=======
-
-            this.msQuanLyPhong.Size = new System.Drawing.Size(152, 26);
-
->>>>>>> e351063bc9d5536ed71edf8ec83af5889de7c0b1
             this.msQuanLyPhong.Text = "Quản Lý";
             this.msQuanLyPhong.Click += new System.EventHandler(this.msQuanLyPhong_Click);
             // 
@@ -160,11 +148,9 @@
             // msBaoCaoThang
             // 
             this.msBaoCaoThang.Name = "msBaoCaoThang";
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
             this.msBaoCaoThang.Size = new System.Drawing.Size(152, 26);
             this.msBaoCaoThang.Text = "Tháng";
             this.msBaoCaoThang.Click += new System.EventHandler(this.msBaoCaoThang_Click);
-=======
             this.msBaoCaoThang.Size = new System.Drawing.Size(205, 26);
             this.msBaoCaoThang.Text = "Lập cáo cáo tháng";
             this.msBaoCaoThang.Click += new System.EventHandler(this.msBaoCaoThang_Click);
@@ -175,7 +161,6 @@
             this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.traCứuToolStripMenuItem.Text = "Tra cứu ";
             this.traCứuToolStripMenuItem.Click += new System.EventHandler(this.traCứuToolStripMenuItem_Click);
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
             // 
             // msThietLap
             // 
