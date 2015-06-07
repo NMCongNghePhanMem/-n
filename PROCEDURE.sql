@@ -2,7 +2,7 @@
 ------------- TABLE Hóa đơn : ****
 
 -- 1. THEM  INSERT: 
-alter procedure THEMHOADON
+create procedure THEMHOADON
 	@MaHoaDon VARCHAR(10),
 	@NgayThanhToan SMALLDATETIME,
 	@TenKhachHang NVARCHAR(50),
@@ -10,6 +10,11 @@ alter procedure THEMHOADON
 	@TongChiTietThanhToan MONEY
 as
 begin
+if(exists (select * from HoaDon where MaHoaDon = @MaHoaDon))
+begin  
+print N'Ma hoa don ' + @MaHoaDon + N' tồn tại'
+return -1
+end
 insert into HOADON
 values (@MaHoaDon,@NgayThanhToan,@TenKhachHang,@DiaChi,@TongChiTietThanhToan)
 
@@ -21,16 +26,13 @@ create procedure XOAHOADON
 	@MaHoaDon VARCHAR(10)
 as
 begin
-
 if(not exists (select * from HoaDon where MaHoaDon = @MaHoaDon))
 begin  
 print N'Ma hoa don ' + @MaHoaDon + N' không tồn tại'
 return -1
 end
-
 delete from HOADON
 where MaHoaDon = @MaHoaDon
-
 end
 go
 -- 3. SUA  UPDATE: 
@@ -81,8 +83,6 @@ select * from HOADON where convert(date,NgayThanhToan,0) = convert(date,GETDATE(
 end
 go
 
-exec LAYHOADONNGAYHIENTAI
-select  top 1 MaHoaDon from HOADON ORDER By MaHoaDon DESC
 ------------- TABLE DETAILBILL: ******
 
 -- // ĐƠN GIÁ TRONG CHI TIẾT HÓA ĐƠN = ĐƠN GIÁ THUÊ TRONG PTP x HỆ SỐ TÙY THEO LOẠI KHÁCH HÀNG
@@ -109,6 +109,8 @@ print N'Ma phiếu thuê phòng ' + @MaPhieuThue + N' không tồn tại'
 return -1
 end
 
+if(exists (select * from CHITIETHOADON where MaHoaDon=@MaHoaDon and MaPhieuThue = @MaPhieuThue))
+return -1
 insert into CHITIETHOADON
 values (@MaHoaDon,@MaPhieuThue,@SoNgayThue,@DonGia,@ThanhTien)
 end
@@ -120,18 +122,11 @@ create procedure XOACHITIETHOADON
 	@MaPhieuThue VARCHAR(10) 
 as
 begin
-
 if(not exists (select * from HOADON where MaHoaDon = @MaHoaDon))
-begin  
-print N'Ma hoa don ' + @MaHoaDon + N' không tồn tại'
 return -1
-end
 
 if(not exists (select * from PHIEUTHUEPHONG where MaPhieuThue = @MaPhieuThue))
-begin  
-print N'Ma phiếu thuê phòng ' + @MaPhieuThue + N' không tồn tại'
 return -1
-end
 
 delete from CHITIETHOADON
 where MaHoaDon = @MaHoaDon and MaPhieuThue= @MaPhieuThue
@@ -193,12 +188,47 @@ set @SoNgayThue = convert(int,(@dayend - @daybegin),1)
 end
 go
 
-declare @SoNgayThue int
-exec SONGAYTHUE '1',@SoNgayThue out
-print @SoNgayThue
+
+-- 6. TRẢ VỀ THÀNH TIỀN (SỐ NGÀY THUÊ[AMOUNTRESERVATION] * ĐƠN GIÁ [DonGia])
+create procedure THANHTIENCTHD
+	@SoNgayThue int,
+	@DonGia money,
+	@ThanhTien money out
+as
+begin
+set @ThanhTien = @SoNgayThue * @DonGia
+end
+go
+
+
+
+
+------------------------------------------------
+--------   Chỉnh sửa          ------------------
+------------------------------------------------
+
+alter procedure MaPhieuThueKhongTonTaiCTHD
+@MaPhong varchar(10),
+@NgayThanhToan smalldatetime,
+@MaPhieuThue varchar(10) out
+as
+begin
+--select p.MaPhieuThue
+if(not exists(select * from PHONG where MaPhong = @MaPhong))
+return 0
+select top 1 @MaPhieuThue =  p.MaPhieuThue
+from PHIEUTHUEPHONG as p left join CHITIETHOADON as c
+on p.MaPhieuThue = c.MaPhieuThue
+where p.MaPhong = @MaPhong and convert(date,NgayThue,0) < convert(date,@NgayThanhToan,0)
+order by NgayThue desc
+if(not exists (select * from CHITIETHOADON where MaPhieuThue = @MaPhieuThue))
+return 1
+else return 0
+end
+go
+
 -- 5. TRẢ VỀ ĐƠN GIÁ = CÁCH: LẤY SỐ LOẠI KHÁCH THUÊ [PHẦN 5  BẢNG PTP] --> == 2 THÌ = ĐƠN GIÁ THUÊ(TRONG BẢNG PTP) * TỶ SỐ PHỤ THU(125%)
                                                                         --> == 1 THÌ = ĐƠN GIÁ THUÊ(TRONG BẢNG PTP) * TỶ SỐ PHỤ THU(100%)
---- mới chỉnh sửa
 alter procedure DONGIA
 	@MaHoaDon varchar(10),
 	@MaPhieuThue varchar(10),
@@ -212,39 +242,15 @@ where MaHoaDon = @MaHoaDon and c.MaPhieuThue = @MaPhieuThue
 end
 go
 
--- 6. TRẢ VỀ THÀNH TIỀN (SỐ NGÀY THUÊ[AMOUNTRESERVATION] * ĐƠN GIÁ [DonGia])
-create procedure THANHTIENCTHD
-	@SoNgayThue int,
-	@DonGia money,
-	@ThanhTien money out
-as
-begin
-set @ThanhTien = @SoNgayThue * @DonGia
-end
-go
+-------------------------------------------------
+--------    Hết phần chỉnh sửa        ----------
+------------------------------------------------
 
-alter procedure MaPhieuThueKhongTonTaiCTHD
-@MaPhong varchar(10),
-@NgayThanhToan smalldatetime
-as
-begin
---declare @MaPhieuThue varchar(10)
---select p.MaPhieuThue
-select top 1 p.MaPhieuThue
-from PHIEUTHUEPHONG as p left join CHITIETHOADON as c
-on p.MaPhieuThue = c.MaPhieuThue
-where p.MaPhong = @MaPhong and NgayThue < @NgayThanhToan
-order by NgayThue desc
-end
-go
 
-set dateformat dmy
-
-exec MaPhieuThueKhongTonTaiCTHD '07','29/5/2015'
-go
----THEM moi----
---------------------------
---------------------------
+-----------------------------------------------
+---          THEM MOI             -------------    
+-----------------------------------------------
+-----------------------------------------------
 create procedure LayThongTinCTHDVaPTP
 @MaHoaDon varchar(10)
 as
@@ -312,8 +318,14 @@ from BAOCAO
 where Thang = @Thang and Nam = @Nam
 end
 go
-
-
+--4. Năm nhỏ nhất
+create procedure NamNhoNhat
+as
+begin
+select min(datepart(year,p.NgayThue))
+from PHIEUTHUEPHONG as p
+end
+go
 
 ------------- TABLE DETAILREPORT:
 
@@ -359,13 +371,25 @@ select p.MaLoaiPhong, SUM(c.ThanhTien) as DoanhThu
 from ((PHONG as p inner join PHIEUTHUEPHONG as ph on p.MaPhong = ph.MaPhong)
 	inner join CHITIETHOADON as c on c.MaPhieuThue = ph.MaPhieuThue) inner join HOADON as h
 	on h.MaHoaDon = c.MaHoaDon
-where DATEPART(month,ph.NgayThue) = @Thang and DATEPART(year, ph.NgayThue) = @Nam
+where DATEPART(month,h.NgayThanhToan) = @Thang and DATEPART(year, h.NgayThanhToan) = @Nam
 group by p.MaLoaiPhong
 end
 go
---------------------------------------------------------
---------------------------------------------------------------
---------------- Hết phần của Nhật ----------------------
+
+------ Lấy nội dung chi tiết báo cáo
+create procedure NoiDungChiTietBaoCao
+@MaBaoCao varchar (10)
+as
+begin
+select MaLoaiPhong, DoanhThu, TiLe
+from CHITIETBAOCAO
+where MaBaoCao = @MaBaoCao
+end
+go
+-------------------------------------------------------------
+----------------    Hết thêm mới    -------------------------
+-------------------------------------------------------------
+--------------- Hết phần của Nhật ---------------------------
 
 
 
