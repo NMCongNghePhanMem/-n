@@ -22,5 +22,15 @@ namespace BusinessLogicTier
         {
             return m_PhanQuyen.KiemTraMatKhau(_phanQuyen);
         }
+
+        public bool ThemQuyenTruyCap(PhanQuyenDTO _phanQuyen)
+        {
+            return m_PhanQuyen.ThemQuyenTruyCap(_phanQuyen);
+        }
+
+        public DataTable KiemTraUserName(string _userName)
+        {
+            return m_PhanQuyen.KiemTraUserName(_userName);
+        }
     }
 }

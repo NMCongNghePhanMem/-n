@@ -27,6 +27,7 @@ namespace QuanLyKhachSan
                 msQuanLyPhong.Visible = false;
                 msThietLap.Visible = false;
                 msTaiChinh.Visible = false;
+                msPhanQuyen.Visible = false;
             }
         }
 
@@ -63,6 +64,12 @@ namespace QuanLyKhachSan
         {
             FormTraCuuPhong formTraCuuPhong = new FormTraCuuPhong();
             formTraCuuPhong.ShowDialog();
+        }
+
+        private void msPhanQuyen_Click(object sender, EventArgs e)
+        {
+            FormPhanQuyen formPhanQuyen = new FormPhanQuyen();
+            formPhanQuyen.ShowDialog();
         }
 
 

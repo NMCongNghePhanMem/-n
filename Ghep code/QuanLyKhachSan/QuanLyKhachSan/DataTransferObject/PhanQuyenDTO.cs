@@ -18,10 +18,11 @@ namespace DataTransferObject
         { 
         }
 
-        public PhanQuyenDTO(string _userName, string _password)
+        public PhanQuyenDTO(string _userName, string _password, string role)
         {
             UserName = _userName;
             Password = _password;
+            Role = role;
         }
     }
 }

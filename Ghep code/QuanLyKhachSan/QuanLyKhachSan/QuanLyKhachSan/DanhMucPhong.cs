@@ -91,6 +91,11 @@ namespace QuanLyKhachSan
                     cb_DonGia.Items.Add(donGia);
                 }
             }
+
+            for (int i = 0; i < lv_DanhMucPhong.Items.Count; i++)
+            {
+                lv_DanhMucPhong.Items[i].SubItems[col_STT.DisplayIndex].Text = (i + 1).ToString();
+            }
         }
 
         public bool IsError(int _cotListView, string _id)
@@ -192,6 +197,7 @@ namespace QuanLyKhachSan
             if (tb_NhapTenPhong.Text == "" || cb_LoaiPhong.Text == "" || cb_DonGia.Text == "" )
             {
                 bt_Them.Enabled = false;
+                ResetButton();
             }
             else
             {
@@ -297,6 +303,14 @@ namespace QuanLyKhachSan
                 }
             }
             m_TbPhong = m_PhongObject.GetPhong();
+
+            if (m_TbPhong != null)
+            {
+                for (int i = 0; i < lv_DanhMucPhong.Items.Count; i++)
+                {
+                    lv_DanhMucPhong.Items[i].SubItems[col_STT.DisplayIndex].Text = (i+1).ToString();
+                }
+            }
         }
 
         private void bt_Luu_Click(object sender, EventArgs e)
@@ -313,6 +327,12 @@ namespace QuanLyKhachSan
             {
                 LuuPhongDangSuaVaoCSDL();
             }
+
+            for (int i = 0; i < lv_DanhMucPhong.Items.Count; i++)
+            {
+                lv_DanhMucPhong.Items[i].SubItems[col_STT.DisplayIndex].Text = (i + 1).ToString();
+            }
+
             ResetListView();
             ResetButton();
             MessageBox.Show("Đã lưu", "Thông báo", MessageBoxButtons.OK);

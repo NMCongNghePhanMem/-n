@@ -41,5 +41,54 @@ namespace DataAccessTier
             }
             return null;
         }
+
+        public bool ThemQuyenTruyCap(PhanQuyenDTO _phanQuyen)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand command = new SqlCommand("ThemQuyenTruyCap", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@username", SqlDbType.VarChar).Value = _phanQuyen.UserName;
+                command.Parameters.Add("@password", SqlDbType.VarChar).Value = _phanQuyen.Password;
+                command.Parameters.Add("@role", SqlDbType.VarChar).Value = _phanQuyen.Role;
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public DataTable KiemTraUserName(string _userName)
+        {
+            try
+            {
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                SqlCommand command = new SqlCommand("KiemTraUserName", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("@userName", SqlDbType.VarChar).Value = _userName;
+                command.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter adap = new SqlDataAdapter(command);
+                adap.Fill(dt);
+                connection.Close();
+                return dt;
+            }
+            catch (Exception)
+            {
+                connection.Close();
+            }
+            return null;
+        }
     }
 }

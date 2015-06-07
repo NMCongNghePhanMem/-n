@@ -68,6 +68,12 @@
     <Compile Include="ChiTietPhieuThue.Designer.cs">
       <DependentUpon>ChiTietPhieuThue.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPhanQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPhanQuyen.Designer.cs">
+      <DependentUpon>FormPhanQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLapBaoCaoDoanThuTheoThang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChiTietPhieuThue.resx">
       <DependentUpon>ChiTietPhieuThue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPhanQuyen.resx">
+      <DependentUpon>FormPhanQuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PhieuThuePhong.resx">
       <DependentUpon>PhieuThuePhong.cs</DependentUpon>
