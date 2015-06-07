@@ -23,9 +23,10 @@ namespace QuanLyKhachSan
         DataTable dtCTHD = null;
         string maHoaDonGanNhat = "";
         string maPhieuThue = "";
-        string maPhong  = "";
+        string maPhong = "";
         int stt = 1;
         bool isThemHoaDon = false;
+        bool isPressDelete = false;
         float temptTongChiTietThanhToan = 0;
         List<PhongVaMaPhong> PhieuThueVaPhongDaXoa = new List<PhongVaMaPhong>();
         PhongVaMaPhong temptPhieuThueVaPhongDaXoa = new PhongVaMaPhong();
@@ -39,8 +40,8 @@ namespace QuanLyKhachSan
         private void FormHoaDonThanhToan_Load(object sender, EventArgs e)
         {
             //dt = objChiTietHoaDon.LayThongTinCTHDVaPTP("1");
-            btnLuuHD.Enabled = btnXoaHD.Enabled = false;
-            txtDiaChi.Enabled = txtKhachHang.Enabled = dateTimePicker1.Enabled = false;
+
+
 
             if (objHoaDon.LayHoaDonNgayHienTai().Rows.Count == 0)
                 cboMaHoaDon.Enabled = false;
@@ -49,6 +50,26 @@ namespace QuanLyKhachSan
             groupBox2.Enabled = false;
 
             cboMaHoaDon.Text = "";
+            // Binding
+            dtHoaDon = objHoaDon.LayHoaDonNgayHienTai();
+            cboMaHoaDon.DataSource = dtHoaDon;
+            cboMaHoaDon.DisplayMember = "MaHoaDon";
+            cboMaHoaDon.ValueMember = "MaHoaDon";
+
+            txtDiaChi.DataBindings.Add("Text", dtHoaDon, "DiaChi");
+            txtKhachHang.DataBindings.Add("Text", dtHoaDon, "TenKhachHang");
+            txtTriGia.DataBindings.Add("Text", dtHoaDon, "TongChiTietThanhToan", false, DataSourceUpdateMode.Never);
+            if (cboMaHoaDon.Text.Length > 0)
+                groupBox2.Enabled = true;
+            if (txtTriGia.Text != "")
+                temptTongChiTietThanhToan = float.Parse(txtTriGia.Text);
+
+            if (dtHoaDon.Rows.Count <= 0)
+            {
+                txtDiaChi.Enabled = txtKhachHang.Enabled = dateTimePicker1.Enabled = false;
+                btnLuuHD.Enabled = btnXoaHD.Enabled = false;
+            }
+
             dtCTHD = objChiTietHoaDon.LayThongTinCTHDVaPTP(cboMaHoaDon.Text);
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = dtCTHD;
@@ -58,19 +79,14 @@ namespace QuanLyKhachSan
             dataGridView1.Columns[3].DataPropertyName = "DonGia";
             dataGridView1.Columns[4].DataPropertyName = "ThanhTien";
             dataGridView1.Columns[5].DataPropertyName = "MaPhieuThue";
-            // Binding
-            dtHoaDon = objHoaDon.LayHoaDonNgayHienTai();
-            cboMaHoaDon.DataSource = dtHoaDon;
-            cboMaHoaDon.DisplayMember = "MaHoaDon";
-            cboMaHoaDon.ValueMember = "MaHoaDon";
 
-            txtDiaChi.DataBindings.Add("Text", dtHoaDon, "DiaChi");
-            txtKhachHang.DataBindings.Add("Text", dtHoaDon, "TenKhachHang");
-            txtTriGia.DataBindings.Add("Text", dtHoaDon, "TongChiTietThanhToan");
-            if (cboMaHoaDon.Text.Length > 0)
-                groupBox2.Enabled = true;
-            if (txtTriGia.Text != "")
-                temptTongChiTietThanhToan = float.Parse(txtTriGia.Text);
+            for (int i = 0; i < dtCTHD.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = stt;
+                stt++;
+            }
+            stt = 1;
+
         }
 
         private void btnThemHD_Click(object sender, EventArgs e)
@@ -92,7 +108,10 @@ namespace QuanLyKhachSan
         private void btnLuuHD_Click(object sender, EventArgs e)
         {
             if (txtDiaChi.Text.Length == 0 || txtKhachHang.Text.Length == 0)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
                 return;
+            }
             // lưu xuống database
             hd.DiaChi = txtDiaChi.Text;
             hd.TenKhachHang = txtKhachHang.Text;
@@ -201,9 +220,17 @@ namespace QuanLyKhachSan
 
         private void cboMaHoaDon_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboMaHoaDon_SelectionChangeCommitted(this.cboMaHoaDon, null);
+            isPressDelete = false;
+            //dtHoaDon = objHoaDon.LayHoaDonNgayHienTai();
+            //cboMaHoaDon.DataSource = dtHoaDon;
+            // txtTriGia.DataBindings.Add("Text", dtHoaDon, "TongChiTietThanhToan");
+        }
+
+        private void cboMaHoaDon_SelectionChangeCommitted(object sender, EventArgs e)
+        {
 
             btnXoaHD.Enabled = btnLuuHD.Enabled = true;
-            btnXoaCTHD.Enabled = true;
             txtDiaChi.Enabled = txtKhachHang.Enabled = dateTimePicker1.Enabled = true;
 
             if (cboMaHoaDon.Text.Contains("System.Data.DataRowView") == false)
@@ -223,10 +250,14 @@ namespace QuanLyKhachSan
             }
             stt = 1;
             btnXoaCTHD.Enabled = true;
+            // Nếu không có chi tiết nào thì không hiện nút xóa
             if (dataGridView1.Rows.Count == 1)
             {
                 btnXoaCTHD.Enabled = false;
             }
+            //if (txtTriGia.Text != "")
+            //    temptTongChiTietThanhToan = float.Parse(txtTriGia.Text);
+
         }
 
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -244,7 +275,7 @@ namespace QuanLyKhachSan
 
         private void btnXoaHD_Click(object sender, EventArgs e)
         {
-           
+
             DialogResult d = MessageBox.Show("Sẽ xóa luôn trong cơ sở dữ liệu.\nBạn có muốn tiếp tục", "Lưu ý !", MessageBoxButtons.OKCancel);
             if (d == System.Windows.Forms.DialogResult.No)
                 return;
@@ -274,7 +305,7 @@ namespace QuanLyKhachSan
 
         private void btnLuuCTHD_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count == 1)
+            if (dataGridView1.Rows.Count == 1 && isPressDelete == false)
             {
                 MessageBox.Show("Vui lòng nhập thông tin hóa đơn");
                 return;
@@ -317,6 +348,10 @@ namespace QuanLyKhachSan
                 {
                     cthd.MaHoaDon = cboMaHoaDon.Text;
                     objChiTietHoaDon.XoaTatCaChiTietHoaDon(cthd.MaHoaDon);
+                    hd.MaHoaDon = cboMaHoaDon.Text;
+                    hd.NgayThanhToan = dateTimePicker1.Value;
+                    hd.TenKhachHang = txtKhachHang.Text;
+                    hd.DiaChi = txtDiaChi.Text;
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
                         cthd.MaPhieuThue = dataGridView1.Rows[i].Cells[5].Value.ToString();
@@ -331,11 +366,19 @@ namespace QuanLyKhachSan
                         // hd.TongChiTietThanhToan = float.Parse(txtTriGia.Text);
                         temptTongChiTietThanhToan += cthd.ThanhTien;
 
-                        hd.MaHoaDon = cboMaHoaDon.Text;
-                        hd.NgayThanhToan = dateTimePicker1.Value;
-                        hd.TenKhachHang = txtKhachHang.Text;
-                        hd.DiaChi = txtDiaChi.Text;
+                        
                         hd.TongChiTietThanhToan = temptTongChiTietThanhToan;
+
+                        if (!objHoaDon.CapNhatHoaDon(hd))
+                        {
+                            MessageBox.Show("Có lỗi xảy ra, không lưu được.");
+                            return;
+                        }
+                    }
+                    if(dataGridView1.Rows.Count == 1)
+                    {
+                        temptTongChiTietThanhToan = 0;
+                        hd.TongChiTietThanhToan = 0;
 
                         if (!objHoaDon.CapNhatHoaDon(hd))
                         {
@@ -353,11 +396,27 @@ namespace QuanLyKhachSan
             }
             btnXoaCTHD.Enabled = true;
             // Câp nhật tình trạng phòng , true : đang trống; false : đã thuê
-            for(int i = 0; i> dataGridView1.Rows.Count - 1; i++)
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 maPhong = dataGridView1.Rows[i].Cells[1].Value.ToString();
                 objChiTietHoaDon.CapNhatTinhTrangPhong(maPhong, false);
             }
+
+            // cập nhật lại datasource cho combobox
+            dtHoaDon = objHoaDon.LayHoaDonNgayHienTai();
+            cboMaHoaDon.DataSource = dtHoaDon;
+
+            // cập nhật lại datasource cho gridview
+            //dtCTHD = objChiTietHoaDon.LayThongTinCTHDVaPTP(cboMaHoaDon.Text);
+            //dataGridView1.AutoGenerateColumns = false;
+            //dataGridView1.DataSource = dtCTHD;
+            //for (int i = 0; i < dtCTHD.Rows.Count; i++)
+            //{
+            //    dataGridView1.Rows[i].Cells[0].Value = stt;
+            //    stt++;
+            //}
+            //stt = 1;
+            cboMaHoaDon_SelectionChangeCommitted(this.cboMaHoaDon,null);
         }
 
         private void btnXoaCTHD_Click(object sender, EventArgs e)
@@ -412,16 +471,17 @@ namespace QuanLyKhachSan
                     txtTriGia.Text = temptTongChiTietThanhToan.ToString();
                     PhieuThueVaPhongDaXoa.Add(temptPhieuThueVaPhongDaXoa);
                 }
+                isPressDelete = true;
             }
         }
 
         private void FormLapHoaDonThanhToan_FormClosing(object sender, FormClosingEventArgs e)
         {
-             for(int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
-             {
-                 maPhong = PhieuThueVaPhongDaXoa[i].maPhong;
-                 objChiTietHoaDon.CapNhatTinhTrangPhong(maPhong, true);
-             }
+            for (int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
+            {
+                maPhong = PhieuThueVaPhongDaXoa[i].maPhong;
+                objChiTietHoaDon.CapNhatTinhTrangPhong(maPhong, true);
+            }
         }
 
     }

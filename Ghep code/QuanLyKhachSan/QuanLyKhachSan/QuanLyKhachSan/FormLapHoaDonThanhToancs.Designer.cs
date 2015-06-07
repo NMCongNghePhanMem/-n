@@ -117,6 +117,7 @@
             this.cboMaHoaDon.Size = new System.Drawing.Size(82, 21);
             this.cboMaHoaDon.TabIndex = 20;
             this.cboMaHoaDon.SelectedIndexChanged += new System.EventHandler(this.cboMaHoaDon_SelectedIndexChanged);
+            this.cboMaHoaDon.SelectionChangeCommitted += new System.EventHandler(this.cboMaHoaDon_SelectionChangeCommitted);
             // 
             // btnThemHD
             // 
