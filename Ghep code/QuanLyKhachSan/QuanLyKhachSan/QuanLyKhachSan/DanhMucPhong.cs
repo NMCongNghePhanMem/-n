@@ -61,7 +61,7 @@ namespace QuanLyKhachSan
 
         private void DanhMucPhong_Load(object sender, EventArgs e)
         {
-
+            bt_Luu.Enabled = false;
             m_TbPhong = m_PhongObject.GetPhong();
             m_TbLoaiPhong = m_LoaiPhongObject.GetDsLoaiPhong();
             int stt = 0;
@@ -122,6 +122,7 @@ namespace QuanLyKhachSan
 
         private void bt_Them_Click(object sender, EventArgs e)
         {
+            bt_Luu.Enabled = true;
             m_IsSave = false;
             m_IsThem = true;
             m_IsXoa = false;
@@ -274,6 +275,7 @@ namespace QuanLyKhachSan
 
         private void bt_Xoa_Click(object sender, EventArgs e)
         {
+            bt_Luu.Enabled = true;
             m_IsXoa = true;
             for (int i = lv_DanhMucPhong.Items.Count - 1; i >= 0; i--)
             {
@@ -315,6 +317,12 @@ namespace QuanLyKhachSan
 
         private void bt_Luu_Click(object sender, EventArgs e)
         {
+            if (m_IsThem == false && m_IsSua == false && m_IsXoa == false)
+            {
+                bt_Luu.Enabled = false;
+                return;
+            }
+
             if (m_IsThem == true)
             {
                 ThemPhongVaoCSDL();
@@ -457,6 +465,7 @@ namespace QuanLyKhachSan
 
         private void bt_Sua_Click(object sender, EventArgs e)
         {
+            bt_Luu.Enabled = true;
             m_IsSua = true;
             for (int i = 0; i < lv_DanhMucPhong.Items.Count; i++)
             {
@@ -503,6 +512,7 @@ namespace QuanLyKhachSan
 
         private void bt_Reset_Click(object sender, EventArgs e)
         {
+            bt_Luu.Enabled = false;
             ResetButton();
             ResetListView();
             ResetThemDanhMucPhong();

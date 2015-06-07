@@ -75,7 +75,6 @@
             // 
             this.msQuanLyPhong.Name = "msQuanLyPhong";
             this.msQuanLyPhong.Size = new System.Drawing.Size(138, 26);
-            this.msQuanLyPhong.Size = new System.Drawing.Size(152, 26);
             this.msQuanLyPhong.Text = "Quản Lý";
             this.msQuanLyPhong.Click += new System.EventHandler(this.msQuanLyPhong_Click);
             // 
@@ -121,8 +120,7 @@
             // msHoaDon
             // 
             this.msHoaDon.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lToolStripMenuItem,
-            this.traCứuToolStripMenuItem});
+            this.lToolStripMenuItem});
             this.msHoaDon.Name = "msHoaDon";
             this.msHoaDon.Size = new System.Drawing.Size(257, 26);
             this.msHoaDon.Text = "Hóa Đơn";
@@ -137,7 +135,8 @@
             // msBaoCaoTheoLoaiPhong
             // 
             this.msBaoCaoTheoLoaiPhong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.msBaoCaoThang});
+            this.msBaoCaoThang,
+            this.traCứuToolStripMenuItem});
             this.msBaoCaoTheoLoaiPhong.Name = "msBaoCaoTheoLoaiPhong";
             this.msBaoCaoTheoLoaiPhong.Size = new System.Drawing.Size(257, 26);
             this.msBaoCaoTheoLoaiPhong.Text = "Báo Cáo Theo Loại Phòng";
@@ -147,6 +146,7 @@
             this.msBaoCaoThang.Name = "msBaoCaoThang";
             this.msBaoCaoThang.Size = new System.Drawing.Size(152, 26);
             this.msBaoCaoThang.Text = "Tháng";
+            this.msBaoCaoThang.Click += new System.EventHandler(this.msBaoCaoThang_Click);
             // 
             // msThietLap
             // 
@@ -161,11 +161,13 @@
             this.msPhanQuyen.Size = new System.Drawing.Size(107, 25);
             this.msPhanQuyen.Text = "Phân Quyền";
             this.msPhanQuyen.Click += new System.EventHandler(this.msPhanQuyen_Click);
+            // 
             // traCứuToolStripMenuItem
             // 
             this.traCứuToolStripMenuItem.Name = "traCứuToolStripMenuItem";
             this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.traCứuToolStripMenuItem.Text = "Tra cứu";
+            this.traCứuToolStripMenuItem.Text = "Tra Cứu";
+            this.traCứuToolStripMenuItem.Click += new System.EventHandler(this.traCứuToolStripMenuItem_Click);
             // 
             // MainForm
             // 

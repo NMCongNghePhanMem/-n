@@ -51,7 +51,8 @@ namespace QuanLyKhachSan
 
         private void lToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormLapHoaDonThanhToan formLapHoaDon = new FormLapHoaDonThanhToan();
+            formLapHoaDon.ShowDialog();
         }
 
         private void msThietLap_Click(object sender, EventArgs e)
@@ -70,6 +71,18 @@ namespace QuanLyKhachSan
         {
             FormPhanQuyen formPhanQuyen = new FormPhanQuyen();
             formPhanQuyen.ShowDialog();
+        }
+
+        private void msBaoCaoThang_Click(object sender, EventArgs e)
+        {
+            FormLapBaoCaoDoanThuTheoThang formLapBaoCao = new FormLapBaoCaoDoanThuTheoThang();
+            formLapBaoCao.ShowDialog();
+        }
+
+        private void traCứuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTraCuuBaoCao formTraCuu = new FormTraCuuBaoCao();
+            formTraCuu.ShowDialog();
         }
 
 
