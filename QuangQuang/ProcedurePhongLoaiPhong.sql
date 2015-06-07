@@ -1,4 +1,4 @@
-﻿use QUANLYKHACHSAN
+﻿use QLKS
 CREATE PROCEDURE GetPhongByMaPhong
 	@MaPhong varchar(10)
 AS
@@ -241,7 +241,7 @@ insert into THAMSO values(1.5,3,4,0.25)
 create procedure GetLatestSoKhachToiDaTrongPhong
 as
 begin
-	select top 1 SoKhachToiDa from THAMSO ORDER BY STT DESC 
+	select top 1 SoKhachToiDa from THAMSO ORDER BY Ma DESC 
 end
 go
 drop procedure GetLatestSoKhachToiDaTrongPhong
