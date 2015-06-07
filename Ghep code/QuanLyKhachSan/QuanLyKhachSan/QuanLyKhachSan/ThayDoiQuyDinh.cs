@@ -281,7 +281,9 @@ namespace QuanLyKhachSan
                     return;
                 }
                 cmdList.Add(thamSo.themSoKhachToiDa(int.Parse(textBoxSoKhachToiDa.Text)));
+                soKhachToiDa = int.Parse(textBoxSoKhachToiDa.Text);
                 cmdList.Add(thamSo.themTyLePhuThu(float.Parse(textBoxTyLePhuThu.Text)));
+                tyLePhuThu = float.Parse(textBoxTyLePhuThu.Text);
             }
             int count = 0;
             for (int i = 0; i < cmdList.Count; ++i)

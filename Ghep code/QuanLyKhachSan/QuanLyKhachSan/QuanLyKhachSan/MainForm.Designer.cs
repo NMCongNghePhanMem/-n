@@ -40,11 +40,10 @@
             this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoTheoLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoThang = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
-=======
+
             this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
             this.msPhanQuyen = new System.Windows.Forms.ToolStripMenuItem();
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
+
             this.traCứuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
             this.msQuanLyKhachSan.SuspendLayout();
@@ -79,10 +78,9 @@
             // 
             this.msQuanLyPhong.Name = "msQuanLyPhong";
             this.msQuanLyPhong.Size = new System.Drawing.Size(138, 26);
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
-=======
+
             this.msQuanLyPhong.Size = new System.Drawing.Size(152, 26);
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
+
             this.msQuanLyPhong.Text = "Quản Lý";
             this.msQuanLyPhong.Click += new System.EventHandler(this.msQuanLyPhong_Click);
             // 
@@ -170,8 +168,7 @@
             this.msThietLap.Text = "Thiết Lập";
             this.msThietLap.Click += new System.EventHandler(this.msThietLap_Click);
             // 
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
-=======
+
             // msPhanQuyen
             // 
             this.msPhanQuyen.Name = "msPhanQuyen";
@@ -184,7 +181,7 @@
             this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.traCứuToolStripMenuItem.Text = "Tra cứu";
             // 
->>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
+
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
