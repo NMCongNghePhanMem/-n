@@ -41,11 +41,8 @@
             this.msBaoCaoTheoLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoThang = new System.Windows.Forms.ToolStripMenuItem();
             this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< HEAD
             this.msPhanQuyen = new System.Windows.Forms.ToolStripMenuItem();
-=======
             this.traCứuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
->>>>>>> origin/master
             this.msQuanLyKhachSan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,11 +74,8 @@
             // msQuanLyPhong
             // 
             this.msQuanLyPhong.Name = "msQuanLyPhong";
-<<<<<<< HEAD
             this.msQuanLyPhong.Size = new System.Drawing.Size(138, 26);
-=======
             this.msQuanLyPhong.Size = new System.Drawing.Size(152, 26);
->>>>>>> origin/master
             this.msQuanLyPhong.Text = "Quản Lý";
             this.msQuanLyPhong.Click += new System.EventHandler(this.msQuanLyPhong_Click);
             // 
@@ -161,20 +155,17 @@
             this.msThietLap.Text = "Thiết Lập";
             this.msThietLap.Click += new System.EventHandler(this.msThietLap_Click);
             // 
-<<<<<<< HEAD
             // msPhanQuyen
             // 
             this.msPhanQuyen.Name = "msPhanQuyen";
             this.msPhanQuyen.Size = new System.Drawing.Size(107, 25);
             this.msPhanQuyen.Text = "Phân Quyền";
             this.msPhanQuyen.Click += new System.EventHandler(this.msPhanQuyen_Click);
-=======
             // traCứuToolStripMenuItem
             // 
             this.traCứuToolStripMenuItem.Name = "traCứuToolStripMenuItem";
             this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.traCứuToolStripMenuItem.Text = "Tra cứu";
->>>>>>> origin/master
             // 
             // MainForm
             // 
@@ -208,11 +199,9 @@
         private System.Windows.Forms.ToolStripMenuItem msThietLap;
         private System.Windows.Forms.ToolStripMenuItem msBaoCaoThang;
         private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
-<<<<<<< HEAD
+
         private System.Windows.Forms.ToolStripMenuItem msPhanQuyen;
-=======
         private System.Windows.Forms.ToolStripMenuItem traCứuToolStripMenuItem;
->>>>>>> origin/master
     }
 }
 

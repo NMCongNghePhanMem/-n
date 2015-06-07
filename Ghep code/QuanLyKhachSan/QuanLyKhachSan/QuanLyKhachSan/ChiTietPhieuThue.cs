@@ -270,6 +270,10 @@ namespace QuanLyKhachSan
 
         private void bt_ChonLai_Click(object sender, EventArgs e)
         {
+            if (cb_Phong.Text == "")
+            {
+                return;
+            }
             for (int i = 0; i < dgv_DsPhieuThue.Rows.Count; i++)
             {
                 DataGridViewCellStyle style = new DataGridViewCellStyle();
