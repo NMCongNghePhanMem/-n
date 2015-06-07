@@ -16,7 +16,6 @@ namespace QuanLyKhachSan
    
     public partial class ChiTietPhieuThue : Form
     {
-        //List<DuLieuKH> lstCustomer;
         DataTable m_TbPhong;
         PhongBUS m_PhongObject;
         DataTable m_TbThamSo;
@@ -35,7 +34,6 @@ namespace QuanLyKhachSan
         public ChiTietPhieuThue()
         {
             InitializeComponent();
-            //lstCustomer = new List<DuLieuKH>();
             m_ChiTietPTP = new ChiTietPhieuThuePhongBUS();
             m_TbPhong = new DataTable();
             m_PhongObject = new PhongBUS();
@@ -204,7 +202,6 @@ namespace QuanLyKhachSan
             {
                 string[] row = new string[]
                                     {   (i + 1).ToString(),
-                                        //m_DsKhachTrongMotPhieuThue.Rows[i]["MaChiTietPhieuThue"].ToString(),
                                         m_DsKhachTrongMotPhieuThue.Rows[i]["TenKhachHang"].ToString(),
                                         LayTenLoaiKhach(m_DsKhachTrongMotPhieuThue.Rows[i]["MaLoaiKhachHang"].ToString()),
                                         m_DsKhachTrongMotPhieuThue.Rows[i]["CMND"].ToString(),
@@ -212,14 +209,6 @@ namespace QuanLyKhachSan
                                     };
                 dgv_ThongTinKhachHang.Rows.Add(row);
 
-                //lstCustomer.Add(new DuLieuKH
-                //{   SttDong = (i + 1).ToString(),
-                //    MaCTPT = m_DsKhachTrongMotPhieuThue.Rows[i]["MaChiTietPhieuThue"].ToString(),
-                //    TenKH = m_DsKhachTrongMotPhieuThue.Rows[i]["TenKhachHang"].ToString(),
-                //    MaLoaiKH = LayTenLoaiKhach(m_DsKhachTrongMotPhieuThue.Rows[i]["MaLoaiKhachHang"].ToString()),
-                //    CMNDKH = m_DsKhachTrongMotPhieuThue.Rows[i]["CMND"].ToString(),
-                //    DiaChiKH = m_DsKhachTrongMotPhieuThue.Rows[i]["DiaChi"].ToString()
-                //});               
             }
         }
 
@@ -241,7 +230,7 @@ namespace QuanLyKhachSan
             }
             else
             {
-                if (IndexDongDuocChon() >= 0)
+                if (IndexDongDuocChon() >= 0 && IndexDongDuocChon() < dgv_DsPhieuThue.Rows.Count)
                 {
                     m_MaPhongString = dgv_DsPhieuThue.Rows[IndexDongDuocChon()].Cells[col_DsPTP_Phong.DisplayIndex].Value.ToString();
                 }
@@ -270,20 +259,19 @@ namespace QuanLyKhachSan
 
         private void bt_ChonLai_Click(object sender, EventArgs e)
         {
-            if (cb_Phong.Text == "")
-            {
-                return;
-            }
-            for (int i = 0; i < dgv_DsPhieuThue.Rows.Count; i++)
-            {
-                DataGridViewCellStyle style = new DataGridViewCellStyle();
-                style.BackColor = Color.LavenderBlush;
-                style.ForeColor = Color.Black;
-                for (int j = 0; j < dgv_DsPhieuThue.Columns.Count; j++)
-                {
-                    dgv_DsPhieuThue.Rows[IndexDongDuocChon()].Cells[dgv_DsPhieuThue.Columns[j].Index].Style = style; 
-                }
-            }
+            //if (IndexDongDuocChon() >= 0 && (IndexDongDuocChon() < dgv_DsPhieuThue.Rows.Count))
+            //{
+            //    for (int i = 0; i < dgv_DsPhieuThue.Rows.Count; i++)
+            //    {
+            //        DataGridViewCellStyle style = new DataGridViewCellStyle();
+            //        style.BackColor = Color.LavenderBlush;
+            //        style.ForeColor = Color.Black;
+            //        for (int j = 0; j < dgv_DsPhieuThue.Columns.Count; j++)
+            //        {
+            //            dgv_DsPhieuThue.Rows[IndexDongDuocChon()].Cells[dgv_DsPhieuThue.Columns[j].Index].Style = style;
+            //        }
+            //    }
+            //}
             cb_Phong.Text = "";
             dgv_ThongTinKhachHang.Rows.Clear();
         }
@@ -443,10 +431,19 @@ namespace QuanLyKhachSan
             string m_MaPhieu = MaPhieuThueCanSua(m_MaPhongString);
 
             m_ChiTietPTP.XoaChiTietPT(m_MaPhieu);
+
             if (m_ChiTietPTP.XoaChiTietPT(m_MaPhieu) != true)
             {
                 MessageBox.Show("Chưa cập nhật được!", "Thông báo", MessageBoxButtons.OK);
                 return;
+            }
+
+            for (int i = 0; i < dgv_DsPhieuThue.Rows.Count; i++)
+            {
+                if (dgv_DsPhieuThue.Rows[i].Cells[col_DsPTP_Phong.DisplayIndex].Value == m_MaPhongString)
+                {
+                    dgv_DsPhieuThue.Rows[i].Cells[col_DsPTP_DonGia.DisplayIndex].Value = LayDonGiaTuyTheoSoKhach(LayLoaiPhong(m_MaPhongString)).ToString();
+                }
             }
 
             for (int i = 0; i < dgv_ThongTinKhachHang.Rows.Count; i++)
