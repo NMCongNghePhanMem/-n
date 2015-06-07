@@ -71,7 +71,7 @@ namespace DataAccessTier
                 SqlDataReader rd = cmd.ExecuteReader();
                 if (rd.Read())
                 {
-                    TyLe = float.Parse(rd["TiLePhuThu"].ToString());
+                    TyLe = float.Parse(rd["TiSoPhuThu"].ToString());
                 }
                 rd.Close();
                 connection.Close();

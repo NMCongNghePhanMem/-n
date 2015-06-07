@@ -67,7 +67,6 @@ namespace QuanLyKhachSan
             formTraCuuPhong.ShowDialog();
         }
 
-<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.cs
         private void msBaoCaoThang_Click(object sender, EventArgs e)
         {
             FormLapBaoCaoDoanThuTheoThang formLapBaoCao = new FormLapBaoCaoDoanThuTheoThang();
@@ -84,13 +83,14 @@ namespace QuanLyKhachSan
         {
             DangNhap d = (DangNhap)((MainForm)sender).Owner;
         }
-=======
+
         private void msPhanQuyen_Click(object sender, EventArgs e)
         {
             FormPhanQuyen formPhanQuyen = new FormPhanQuyen();
             formPhanQuyen.ShowDialog();
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.cs
         private void msBaoCaoThang_Click(object sender, EventArgs e)
         {
@@ -107,6 +107,9 @@ namespace QuanLyKhachSan
 =======
 >>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.cs
 >>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.cs
+=======
+
+>>>>>>> e351063bc9d5536ed71edf8ec83af5889de7c0b1
 
     }
 }
