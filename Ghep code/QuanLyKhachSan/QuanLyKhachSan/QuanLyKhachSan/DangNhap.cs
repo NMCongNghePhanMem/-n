@@ -26,15 +26,17 @@ namespace QuanLyKhachSan
         {
             if (tb_UserName.Text == "")
             {
-                MessageBox.Show("Bạn chưa nhập tên đăng nhập!!!");
+                MessageBox.Show("Bạn chưa nhập tên đăng nhập!!!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
             if (mtb_Password.Text == "")
             {
-                MessageBox.Show("Bạn chưa nhập mật khẩu!!!");
+                MessageBox.Show("Bạn chưa nhập mật khẩu!!!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-            PhanQuyenDTO phanQuyen = new PhanQuyenDTO(tb_UserName.Text, mtb_Password.Text);
+
+            PhanQuyenDTO phanQuyen = new PhanQuyenDTO(tb_UserName.Text, mtb_Password.Text, "");
+
             if (m_PhanQuyen.KiemTraMatKhau(phanQuyen).Rows.Count <= 0 || m_PhanQuyen.KiemTraMatKhau(phanQuyen).Rows.Count > 1)
             {
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!", "Thông báo", MessageBoxButtons.OK);

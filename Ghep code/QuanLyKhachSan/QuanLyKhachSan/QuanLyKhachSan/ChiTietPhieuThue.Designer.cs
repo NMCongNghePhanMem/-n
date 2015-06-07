@@ -377,6 +377,7 @@
             this.Controls.Add(this.gb_LuaChon);
             this.Controls.Add(this.gb_DsKhach);
             this.Controls.Add(this.gb_DsPhieuThue);
+            this.MaximizeBox = false;
             this.Name = "ChiTietPhieuThue";
             this.Text = "Chi Tiết Phiếu Thuê";
             this.Load += new System.EventHandler(this.PhieuThueHienTai_Load);

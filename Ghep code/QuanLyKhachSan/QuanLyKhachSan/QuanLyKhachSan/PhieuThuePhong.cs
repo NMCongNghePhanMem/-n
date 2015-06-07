@@ -271,5 +271,10 @@ namespace QuanLyKhachSan
             Close();
         }
 
+        private void btIn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Kết nối máy in thất bại!", "Thông báo", MessageBoxButtons.OK);
+        }
+
     }
 }

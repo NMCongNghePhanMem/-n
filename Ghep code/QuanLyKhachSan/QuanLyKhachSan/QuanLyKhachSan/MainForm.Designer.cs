@@ -40,6 +40,11 @@
             this.lToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoTheoLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoThang = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
+=======
+            this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
+            this.msPhanQuyen = new System.Windows.Forms.ToolStripMenuItem();
+>>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
             this.traCứuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
             this.msQuanLyKhachSan.SuspendLayout();
@@ -53,7 +58,8 @@
             this.msPhong,
             this.msPhieuThuePhong,
             this.msTaiChinh,
-            this.msThietLap});
+            this.msThietLap,
+            this.msPhanQuyen});
             this.msQuanLyKhachSan.Location = new System.Drawing.Point(0, 0);
             this.msQuanLyKhachSan.Name = "msQuanLyKhachSan";
             this.msQuanLyKhachSan.Size = new System.Drawing.Size(650, 29);
@@ -73,6 +79,10 @@
             // 
             this.msQuanLyPhong.Name = "msQuanLyPhong";
             this.msQuanLyPhong.Size = new System.Drawing.Size(138, 26);
+<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
+=======
+            this.msQuanLyPhong.Size = new System.Drawing.Size(152, 26);
+>>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
             this.msQuanLyPhong.Text = "Quản Lý";
             this.msQuanLyPhong.Click += new System.EventHandler(this.msQuanLyPhong_Click);
             // 
@@ -160,6 +170,21 @@
             this.msThietLap.Text = "Thiết Lập";
             this.msThietLap.Click += new System.EventHandler(this.msThietLap_Click);
             // 
+<<<<<<< HEAD:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/MainForm.Designer.cs
+=======
+            // msPhanQuyen
+            // 
+            this.msPhanQuyen.Name = "msPhanQuyen";
+            this.msPhanQuyen.Size = new System.Drawing.Size(107, 25);
+            this.msPhanQuyen.Text = "Phân Quyền";
+            this.msPhanQuyen.Click += new System.EventHandler(this.msPhanQuyen_Click);
+            // traCứuToolStripMenuItem
+            // 
+            this.traCứuToolStripMenuItem.Name = "traCứuToolStripMenuItem";
+            this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.traCứuToolStripMenuItem.Text = "Tra cứu";
+            // 
+>>>>>>> origin/master:Ghep code/QuanLyKhachSan/QuanLyKhachSan/QuanLyKhachSan/Form1.Designer.cs
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +218,8 @@
         private System.Windows.Forms.ToolStripMenuItem msThietLap;
         private System.Windows.Forms.ToolStripMenuItem msBaoCaoThang;
         private System.Windows.Forms.ToolStripMenuItem lToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem msPhanQuyen;
         private System.Windows.Forms.ToolStripMenuItem traCứuToolStripMenuItem;
     }
 }
