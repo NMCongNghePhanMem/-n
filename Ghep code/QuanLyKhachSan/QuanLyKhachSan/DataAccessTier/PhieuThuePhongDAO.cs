@@ -100,7 +100,7 @@ namespace DataAccessTier
                 {
                     connection.Open();
                 }
-                SqlCommand command = new SqlCommand("CapNhatDonGia", connection);
+                SqlCommand command = new SqlCommand("CapNhatDonGiaPhong", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.Add("@MaPhieu", SqlDbType.VarChar).Value = _MaPhieu;
                 command.Parameters.Add("@DonGia", SqlDbType.Money).Value = _donGia;
