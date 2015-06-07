@@ -386,6 +386,21 @@ from CHITIETBAOCAO
 where MaBaoCao = @MaBaoCao
 end
 go
+
+create procedure CapNhatTinhTrangPhong
+@MaPhong varchar(10),
+@TinhTrangPhong bit
+as
+begin
+IF (NOT EXISTS(SELECT * FROM PHONG WHERE PHONG.MaPhong = @MaPhong))
+	BEGIN
+		RETURN -1
+	END
+	UPDATE PHONG
+	SET PHONG.TinhTrangPhong = @TinhTrangPhong
+	WHERE PHONG.MaPhong = @MaPhong
+end
+go
 -------------------------------------------------------------
 ----------------    Hết thêm mới    -------------------------
 -------------------------------------------------------------
