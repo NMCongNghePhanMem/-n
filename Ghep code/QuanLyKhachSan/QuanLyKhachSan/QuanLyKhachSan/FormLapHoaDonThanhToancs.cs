@@ -148,6 +148,7 @@ namespace QuanLyKhachSan
             if (e.ColumnIndex == 2)
             // MessageBox.Show("cột phòng leave, tính toán 3 phần còn lại");
             {
+               
                 for (int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
                 {
                     if (PhieuThueVaPhongDaXoa[i].maPhong == null)
@@ -174,7 +175,8 @@ namespace QuanLyKhachSan
                 maPhieuThue = objChiTietHoaDon.MaPhieuThueKhongTonTaiCTHD(dataGridView1.CurrentRow.Cells[1].Value.ToString(), dateTimePicker1.Value);
                 if (maPhieuThue.Length == 0)
                 {
-                    MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.");
+                    
+                    MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.");
                     return;
                 }
                 //maHoaDonGanNhat = objHoaDon.MaHoaDonGanNhat();

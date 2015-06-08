@@ -15,10 +15,12 @@ namespace QuanLyKhachSan
     public partial class DangNhap : Form
     {
         PhanQuyenBUS m_PhanQuyen;
+        public static DangNhap formDN;
 
         public DangNhap()
         {
             InitializeComponent();
+            formDN = this;
             m_PhanQuyen = new PhanQuyenBUS();
         }
 

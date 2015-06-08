@@ -202,7 +202,6 @@ namespace QuanLyKhachSan
                 ChiTietPhieuThueDTO _chiTietPhieuThue = new ChiTietPhieuThueDTO();
                 _chiTietPhieuThue.ID_ChiTietPhieuThue = "";
                 _chiTietPhieuThue.ID_PhieuThue = m_MaPhieu;
-
                 _chiTietPhieuThue.ID_LoaiKhachHang = LayLoaiKhachHang(dgvDanhSachKhach.Rows[i].Cells[colLoaiKhach.DisplayIndex].Value.ToString());
                 _chiTietPhieuThue.TenKhachHang = dgvDanhSachKhach.Rows[i].Cells[colTenKhachHang.DisplayIndex].Value.ToString();
                 if (dgvDanhSachKhach.Rows[i].Cells[colCMND.DisplayIndex].Value != null)
@@ -232,6 +231,7 @@ namespace QuanLyKhachSan
 
         private void btThemKhach_Click(object sender, EventArgs e)
         {
+            m_TbThamSo = m_ThamSo.LayThamSo();
             if (m_TbThamSo.Rows.Count <= 0)
             {
                 MessageBox.Show("Chưa có giá trị thiết lập.", "Thông báo", MessageBoxButtons.OK);
