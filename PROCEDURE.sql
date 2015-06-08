@@ -393,6 +393,16 @@ create procedure CapNhatTinhTrangPhong
 as
 begin
 IF (NOT EXISTS(SELECT * FROM PHONG WHERE PHONG.MaPhong = @MaPhong))
+<<<<<<< HEAD
+	BEGIN
+		RETURN -1
+	END
+	UPDATE PHONG
+	SET PHONG.TinhTrangPhong = @TinhTrangPhong
+	WHERE PHONG.MaPhong = @MaPhong
+end
+go
+=======
  BEGIN
   RETURN -1
  END
@@ -402,6 +412,7 @@ IF (NOT EXISTS(SELECT * FROM PHONG WHERE PHONG.MaPhong = @MaPhong))
 end
 go
 
+>>>>>>> origin/master
 -------------------------------------------------------------
 ----------------    Hết thêm mới    -------------------------
 -------------------------------------------------------------
