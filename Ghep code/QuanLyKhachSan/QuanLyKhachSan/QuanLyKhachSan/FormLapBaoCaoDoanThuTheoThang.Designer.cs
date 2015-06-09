@@ -39,7 +39,6 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.cboNam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnXoaBC = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -137,22 +136,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Năm";
             // 
-            // btnXoaBC
-            // 
-            this.btnXoaBC.Location = new System.Drawing.Point(279, 257);
-            this.btnXoaBC.Name = "btnXoaBC";
-            this.btnXoaBC.Size = new System.Drawing.Size(85, 23);
-            this.btnXoaBC.TabIndex = 7;
-            this.btnXoaBC.Text = "Xóa Báo cáo";
-            this.btnXoaBC.UseVisualStyleBackColor = true;
-            this.btnXoaBC.Click += new System.EventHandler(this.btnXoaBC_Click);
-            // 
             // FormLapBaoCaoDoanThuTheoThang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 300);
-            this.Controls.Add(this.btnXoaBC);
             this.Controls.Add(this.cboNam);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnXoa);
@@ -181,6 +169,5 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ComboBox cboNam;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnXoaBC;
     }
 }

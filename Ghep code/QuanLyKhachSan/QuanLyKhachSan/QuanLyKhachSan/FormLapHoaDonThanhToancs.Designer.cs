@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnXoaHD = new System.Windows.Forms.Button();
-            this.btnLuuHD = new System.Windows.Forms.Button();
+            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cboMaHoaDon = new System.Windows.Forms.ComboBox();
-            this.btnThemHD = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTriGia = new System.Windows.Forms.TextBox();
@@ -42,9 +39,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLuuHD = new System.Windows.Forms.Button();
+            this.btnThemHD = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnLuuCTHD = new System.Windows.Forms.Button();
-            this.btnXoaCTHD = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.aSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Phong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,11 +57,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnXoaHD);
-            this.groupBox1.Controls.Add(this.btnLuuHD);
+            this.groupBox1.Controls.Add(this.txtMaHoaDon);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cboMaHoaDon);
-            this.groupBox1.Controls.Add(this.btnThemHD);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtTriGia);
@@ -80,25 +74,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hóa đơn";
             // 
-            // btnXoaHD
+            // txtMaHoaDon
             // 
-            this.btnXoaHD.Location = new System.Drawing.Point(363, 88);
-            this.btnXoaHD.Name = "btnXoaHD";
-            this.btnXoaHD.Size = new System.Drawing.Size(95, 23);
-            this.btnXoaHD.TabIndex = 23;
-            this.btnXoaHD.Text = "Xóa hóa đơn";
-            this.btnXoaHD.UseVisualStyleBackColor = true;
-            this.btnXoaHD.Click += new System.EventHandler(this.btnXoaHD_Click);
-            // 
-            // btnLuuHD
-            // 
-            this.btnLuuHD.Location = new System.Drawing.Point(204, 89);
-            this.btnLuuHD.Name = "btnLuuHD";
-            this.btnLuuHD.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuHD.TabIndex = 22;
-            this.btnLuuHD.Text = "Lưu";
-            this.btnLuuHD.UseVisualStyleBackColor = true;
-            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
+            this.txtMaHoaDon.Location = new System.Drawing.Point(30, 59);
+            this.txtMaHoaDon.Name = "txtMaHoaDon";
+            this.txtMaHoaDon.ReadOnly = true;
+            this.txtMaHoaDon.Size = new System.Drawing.Size(80, 20);
+            this.txtMaHoaDon.TabIndex = 101;
             // 
             // label5
             // 
@@ -108,26 +90,6 @@
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 21;
             this.label5.Text = "Mã hóa đơn";
-            // 
-            // cboMaHoaDon
-            // 
-            this.cboMaHoaDon.FormattingEnabled = true;
-            this.cboMaHoaDon.Location = new System.Drawing.Point(23, 55);
-            this.cboMaHoaDon.Name = "cboMaHoaDon";
-            this.cboMaHoaDon.Size = new System.Drawing.Size(82, 21);
-            this.cboMaHoaDon.TabIndex = 20;
-            this.cboMaHoaDon.SelectedIndexChanged += new System.EventHandler(this.cboMaHoaDon_SelectedIndexChanged);
-            this.cboMaHoaDon.SelectionChangeCommitted += new System.EventHandler(this.cboMaHoaDon_SelectionChangeCommitted);
-            // 
-            // btnThemHD
-            // 
-            this.btnThemHD.Location = new System.Drawing.Point(29, 89);
-            this.btnThemHD.Name = "btnThemHD";
-            this.btnThemHD.Size = new System.Drawing.Size(105, 23);
-            this.btnThemHD.TabIndex = 19;
-            this.btnThemHD.Text = "Thêm hóa đơn";
-            this.btnThemHD.UseVisualStyleBackColor = true;
-            this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
             // dateTimePicker1
             // 
@@ -166,6 +128,7 @@
             this.txtKhachHang.Name = "txtKhachHang";
             this.txtKhachHang.Size = new System.Drawing.Size(178, 20);
             this.txtKhachHang.TabIndex = 14;
+            this.txtKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKhachHang_KeyPress);
             // 
             // label3
             // 
@@ -194,10 +157,28 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Khách hàng/Cơ quan";
             // 
+            // btnLuuHD
+            // 
+            this.btnLuuHD.Location = new System.Drawing.Point(306, 465);
+            this.btnLuuHD.Name = "btnLuuHD";
+            this.btnLuuHD.Size = new System.Drawing.Size(75, 23);
+            this.btnLuuHD.TabIndex = 22;
+            this.btnLuuHD.Text = "Lưu";
+            this.btnLuuHD.UseVisualStyleBackColor = true;
+            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
+            // 
+            // btnThemHD
+            // 
+            this.btnThemHD.Location = new System.Drawing.Point(42, 465);
+            this.btnThemHD.Name = "btnThemHD";
+            this.btnThemHD.Size = new System.Drawing.Size(105, 23);
+            this.btnThemHD.TabIndex = 19;
+            this.btnThemHD.Text = "Thêm hóa đơn";
+            this.btnThemHD.UseVisualStyleBackColor = true;
+            this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
+            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnLuuCTHD);
-            this.groupBox2.Controls.Add(this.btnXoaCTHD);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(12, 128);
             this.groupBox2.Name = "groupBox2";
@@ -205,26 +186,6 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chi tiết hóa đơn";
-            // 
-            // btnLuuCTHD
-            // 
-            this.btnLuuCTHD.Location = new System.Drawing.Point(204, 284);
-            this.btnLuuCTHD.Name = "btnLuuCTHD";
-            this.btnLuuCTHD.Size = new System.Drawing.Size(75, 23);
-            this.btnLuuCTHD.TabIndex = 18;
-            this.btnLuuCTHD.Text = "Lưu";
-            this.btnLuuCTHD.UseVisualStyleBackColor = true;
-            this.btnLuuCTHD.Click += new System.EventHandler(this.btnLuuCTHD_Click);
-            // 
-            // btnXoaCTHD
-            // 
-            this.btnXoaCTHD.Location = new System.Drawing.Point(363, 284);
-            this.btnXoaCTHD.Name = "btnXoaCTHD";
-            this.btnXoaCTHD.Size = new System.Drawing.Size(114, 23);
-            this.btnXoaCTHD.TabIndex = 19;
-            this.btnXoaCTHD.Text = "Xóa toàn bộ CTHD";
-            this.btnXoaCTHD.UseVisualStyleBackColor = true;
-            this.btnXoaCTHD.Click += new System.EventHandler(this.btnXoaCTHD_Click);
             // 
             // dataGridView1
             // 
@@ -238,10 +199,11 @@
             this.cthdMaPhieuThue});
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(688, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(693, 249);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // aSTT
@@ -267,18 +229,21 @@
             this.DonGia.HeaderText = "Đơn giá";
             this.DonGia.Name = "DonGia";
             this.DonGia.ReadOnly = true;
+            this.DonGia.Width = 150;
             // 
             // ThanhTien
             // 
             this.ThanhTien.HeaderText = "Thành tiền";
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.ReadOnly = true;
+            this.ThanhTien.Width = 150;
             // 
             // cthdMaPhieuThue
             // 
             this.cthdMaPhieuThue.HeaderText = "Mã phiếu thuê";
             this.cthdMaPhieuThue.Name = "cthdMaPhieuThue";
             this.cthdMaPhieuThue.ReadOnly = true;
+            this.cthdMaPhieuThue.Visible = false;
             // 
             // button2
             // 
@@ -295,6 +260,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(718, 500);
+            this.Controls.Add(this.btnLuuHD);
+            this.Controls.Add(this.btnThemHD);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -326,11 +293,8 @@
         private System.Windows.Forms.Button btnThemHD;
         private System.Windows.Forms.Button btnLuuHD;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cboMaHoaDon;
-        private System.Windows.Forms.Button btnXoaHD;
-        private System.Windows.Forms.Button btnXoaCTHD;
-        private System.Windows.Forms.Button btnLuuCTHD;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtMaHoaDon;
         private System.Windows.Forms.DataGridViewTextBoxColumn aSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phong;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoNgayThue;

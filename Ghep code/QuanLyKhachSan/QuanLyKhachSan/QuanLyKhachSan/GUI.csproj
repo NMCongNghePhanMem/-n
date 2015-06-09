@@ -118,6 +118,9 @@
     <EmbeddedResource Include="DanhMucPhong.resx">
       <DependentUpon>DanhMucPhong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLapBaoCaoDoanThuTheoThang.resx">
+      <DependentUpon>FormLapBaoCaoDoanThuTheoThang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLapHoaDonThanhToancs.resx">
       <DependentUpon>FormLapHoaDonThanhToancs.cs</DependentUpon>
     </EmbeddedResource>

@@ -151,16 +151,7 @@
             this.msBaoCaoThang.Size = new System.Drawing.Size(152, 26);
             this.msBaoCaoThang.Text = "Tháng";
             this.msBaoCaoThang.Click += new System.EventHandler(this.msBaoCaoThang_Click);
-            this.msBaoCaoThang.Size = new System.Drawing.Size(205, 26);
-            this.msBaoCaoThang.Text = "Lập cáo cáo tháng";
-            this.msBaoCaoThang.Click += new System.EventHandler(this.msBaoCaoThang_Click);
-            // 
-            // traCứuToolStripMenuItem
-            // 
-            this.traCứuToolStripMenuItem.Name = "traCứuToolStripMenuItem";
-            this.traCứuToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.traCứuToolStripMenuItem.Text = "Tra cứu ";
-            this.traCứuToolStripMenuItem.Click += new System.EventHandler(this.traCứuToolStripMenuItem_Click);
+           
             // 
             // msThietLap
             // 

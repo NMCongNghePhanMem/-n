@@ -29,11 +29,11 @@ namespace QuanLyKhachSan
 
         private void FormLapBaoCaoDoanThuTheoThang_Load(object sender, EventArgs e)
         {
-            for (int i = 1; i <= DateTime.Now.Month; i++)
+            for (int i = 1; i < 13; i++)
                 cboThang.Items.Add(i);
             for (int i = objBaoCao.NamNhoNhat(); i <= DateTime.Now.Year; i++)
                 cboNam.Items.Add(i);
-            cboThang.Text = DateTime.Now.Month.ToString();
+            cboThang.Text = "";
             cboNam.Text = DateTime.Now.Year.ToString();
         }
 
@@ -53,6 +53,8 @@ namespace QuanLyKhachSan
         private void cboNam_SelectedIndexChanged(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+            if (cboThang.Text == "")
+                return;
             if (objBaoCao.LayMaBaoCao(int.Parse(cboThang.Text), int.Parse(cboNam.Text)).Length > 0)
             {
                 MessageBox.Show("Báo cáo của tháng này đã được lập.");
