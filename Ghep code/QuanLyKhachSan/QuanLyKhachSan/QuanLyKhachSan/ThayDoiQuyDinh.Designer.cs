@@ -358,7 +358,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormThayDoiQuyDinh";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thiết Lập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormThayDoiQuyDinh_FormClosing);
             this.groupBoxLoaiPhong.ResumeLayout(false);

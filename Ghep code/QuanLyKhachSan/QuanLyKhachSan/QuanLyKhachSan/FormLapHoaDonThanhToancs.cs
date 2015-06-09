@@ -93,6 +93,7 @@ namespace QuanLyKhachSan
             if (e.ColumnIndex == 2)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (dataGridView1.CurrentRow.Cells[3].Value != null)
                     if (dataGridView1.CurrentRow.Cells[3].Value.ToString() != "")
                         return;
@@ -100,6 +101,13 @@ namespace QuanLyKhachSan
                 if (dataGridView1.CurrentRow.Cells[3].Value.ToString() != "")
                     return;
 >>>>>>> origin/master
+=======
+               
+=======
+                if (dataGridView1.CurrentRow.Cells[3].Value.ToString() != "")
+                    return;
+>>>>>>> c0676e0870425cb9df3cfd047c00141097ec2d0e
+>>>>>>> parent of badc8d0... config form
                 for (int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
                 {
                     if (PhieuThueVaPhongDaXoa[i].maPhong == null)
@@ -136,17 +144,23 @@ namespace QuanLyKhachSan
                 if (maPhieuThue.Length == 0)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.", "Thông báo !");
                     return;
                 }
                 //maHoaDonGanNhat = objHoaDon.MaHoaDonGanNhat();
                 cthd.MaHoaDon = txtMaHoaDon.Text;
 =======
+=======
+>>>>>>> parent of badc8d0... config form
                     
                     MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.");
+=======
                     MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.", "Thông báo !");
+>>>>>>> c0676e0870425cb9df3cfd047c00141097ec2d0e
                     return;
                 }
+                //maHoaDonGanNhat = objHoaDon.MaHoaDonGanNhat();
                 if (isThemHoaDon == true)
                     cthd.MaHoaDon = maHoaDonGanNhat;
                 else

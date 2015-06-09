@@ -143,7 +143,6 @@
             this.Controls.Add(this.lb_UserName);
             this.MaximizeBox = false;
             this.Name = "FormPhanQuyen";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phân Quyền";
             this.ResumeLayout(false);
             this.PerformLayout();

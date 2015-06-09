@@ -15,30 +15,17 @@ namespace QuanLyKhachSan
     public partial class DangNhap : Form
     {
         PhanQuyenBUS m_PhanQuyen;
-        static DangNhap staticForm;
-        private DangNhap()
+        public static DangNhap formDN;
+
+        public DangNhap()
         {
             InitializeComponent();
+            formDN = this;
             m_PhanQuyen = new PhanQuyenBUS();
-        }
-
-        public static DangNhap getInstance()
-        {
-            if (staticForm == null)
-            {
-                staticForm = new DangNhap();
-            }
-            return staticForm;
         }
 
         private void bt_Login_Click(object sender, EventArgs e)
         {
-            if (tb_UserName.Text == "admin" && mtb_Password.Text == "admin")
-            {
-                FormPhanQuyen m_PQ = new FormPhanQuyen();
-                m_PQ.ShowDialog();
-                return;
-            }
             if (tb_UserName.Text == "")
             {
                 MessageBox.Show("Bạn chưa nhập tên đăng nhập!!!", "Thông báo", MessageBoxButtons.OK);
@@ -60,31 +47,17 @@ namespace QuanLyKhachSan
             if (m_PhanQuyen.KiemTraMatKhau(phanQuyen).Rows[0][2].ToString().Contains("Quản Lý"))
             {
                 MainForm.role = ERole.QuanLy;
-                MainForm.username = tb_UserName.Text;
                 MainForm mf = new MainForm();
                 this.Hide();
                 mf.Show();
-                
             }
             else if (m_PhanQuyen.KiemTraMatKhau(phanQuyen).Rows[0][2].ToString().Contains("Nhân Viên"))
             {
                 MainForm.role = ERole.NhanVien;
-                MainForm.username = tb_UserName.Text;
                 MainForm mf = new MainForm();
                 this.Hide();
                 mf.Show();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tb_UserName.Text = "";
-            mtb_Password.Text = "";
-        }
-
-        private void DangNhap_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //Environment.Exit(1);
         }
     }
 }

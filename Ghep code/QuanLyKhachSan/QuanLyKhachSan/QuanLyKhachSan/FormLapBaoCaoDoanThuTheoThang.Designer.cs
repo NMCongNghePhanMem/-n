@@ -148,9 +148,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.cboThang);
             this.Controls.Add(this.label1);
-            this.MaximizeBox = false;
             this.Name = "FormLapBaoCaoDoanThuTheoThang";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo doanh thu theo tháng";
             this.Load += new System.EventHandler(this.FormLapBaoCaoDoanThuTheoThang_Load);
             this.ResumeLayout(false);

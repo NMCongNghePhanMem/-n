@@ -30,7 +30,7 @@ namespace QuanLyKhachSan
                 return;
             }
 
-            if (m_PhanQuyen.KiemTraUserName(tb_UserName.Text).Rows.Count == 0)
+            if (m_PhanQuyen.KiemTraUserName(tb_UserName.Text) == null)
             {
                 MessageBox.Show("Đăng kí thành công!", "Thông báo", MessageBoxButtons.OK);
             }

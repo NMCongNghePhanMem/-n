@@ -380,7 +380,6 @@
             this.Controls.Add(this.gb_DsPhieuThue);
             this.MaximizeBox = false;
             this.Name = "ChiTietPhieuThue";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi Tiết Phiếu Thuê";
             this.Load += new System.EventHandler(this.PhieuThueHienTai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_DsPhieuThue)).EndInit();

@@ -205,7 +205,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormTraCuuPhong";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tra Cứu Phòng";
             this.Load += new System.EventHandler(this.FormTraCuuPhong_Load);
             this.panel1.ResumeLayout(false);

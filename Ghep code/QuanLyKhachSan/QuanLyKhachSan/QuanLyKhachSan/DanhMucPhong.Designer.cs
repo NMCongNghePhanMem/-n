@@ -333,7 +333,6 @@
             this.Controls.Add(this.bt_Thoat);
             this.MaximizeBox = false;
             this.Name = "DanhMucPhong";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh Mục Phòng";
             this.Load += new System.EventHandler(this.DanhMucPhong_Load);
             this.gbLuaChon.ResumeLayout(false);

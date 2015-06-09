@@ -16,7 +16,7 @@ namespace QuanLyKhachSan
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(DangNhap.getInstance());
+            Application.Run(new DangNhap());
         }
     }
 }

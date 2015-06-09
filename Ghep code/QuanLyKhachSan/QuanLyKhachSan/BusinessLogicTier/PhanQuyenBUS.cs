@@ -32,18 +32,5 @@ namespace BusinessLogicTier
         {
             return m_PhanQuyen.KiemTraUserName(_userName);
         }
-
-        public DataTable DoiMatKhau(PhanQuyenDTO _phanquyen)
-        {
-            return m_PhanQuyen.DoiMatKhau(_phanquyen);
-        }
-        public DataTable LayUsername()
-        {
-            return m_PhanQuyen.LayUsername();
-        }
-        public bool XoaPhanQuyen(string _userName)
-        {
-            return m_PhanQuyen.XoaPhanQuyen(_userName);
-        }
     }
 }
