@@ -81,7 +81,7 @@ namespace QuanLyKhachSan
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DangNhap d = (DangNhap)((MainForm)sender).Owner;
+            //DangNhap d = (DangNhap)((MainForm)sender).Owner;
         }
 
         private void msPhanQuyen_Click(object sender, EventArgs e)

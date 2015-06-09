@@ -41,7 +41,7 @@
             this.msBaoCaoTheoLoaiPhong = new System.Windows.Forms.ToolStripMenuItem();
             this.msBaoCaoThang = new System.Windows.Forms.ToolStripMenuItem();
 
-            this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
+            //this.msThietLap = new System.Windows.Forms.ToolStripMenuItem();
             this.msPhanQuyen = new System.Windows.Forms.ToolStripMenuItem();
 
             this.traCứuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
