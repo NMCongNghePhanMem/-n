@@ -250,14 +250,14 @@ create procedure CapNhapSoKhachToiDaTrongPhong
 as
 begin
 	update THAMSO set SoKhachToiDa =@SoKhach 
-	where STT >= ALL(select STT FROM THAMSO)
+	where Ma >= ALL(select Ma FROM THAMSO)
 end
 go
 
 create procedure GetLatestTyLePhuThu
 as
 begin
-	select top 1 THAMSO.TiLePhuThu from THAMSO ORDER BY STT DESC 
+	select top 1 THAMSO.TiLePhuThu from THAMSO ORDER BY Ma DESC 
 end
 go
 
@@ -265,7 +265,7 @@ create procedure CapNhapTyLePhuThu
 	@TyLe float
 as
 begin
-	UPDATE THAMSO SET TiLePhuThu =@TyLe WHERE STT >=ALL(SELECT STT FROM THAMSO)
+	UPDATE THAMSO SET TiLePhuThu =@TyLe WHERE Ma >=ALL(SELECT Ma FROM THAMSO)
 end
 go
 

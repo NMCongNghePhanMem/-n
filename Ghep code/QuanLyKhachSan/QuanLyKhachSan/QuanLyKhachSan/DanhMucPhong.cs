@@ -163,7 +163,7 @@ namespace QuanLyKhachSan
 
         private void cb_LoaiPhong_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (m_IsXoa == true || m_IsSua == true)
+            if (m_IsSua == true)
             {
                 bt_Them.Enabled = false;
             }
@@ -171,7 +171,7 @@ namespace QuanLyKhachSan
             {
                 bt_Them.Enabled = true;
             }
-            if (cb_LoaiPhong.SelectedIndex != -1 || cb_LoaiPhong.SelectedIndex >= lv_DanhMucPhong.Items.Count)
+            if (cb_LoaiPhong.SelectedIndex >= 0 && cb_LoaiPhong.SelectedIndex < m_TbLoaiPhong.Rows.Count)
             {
                 for (int i = 0; i < m_TbLoaiPhong.Rows.Count; i++)
                 {
@@ -187,7 +187,7 @@ namespace QuanLyKhachSan
 
         private void tb_NhapTenPhong_TextChanged(object sender, EventArgs e)
         {
-            if (m_IsXoa == true || m_IsSua == true)
+            if (m_IsSua == true)
             {
                 bt_Them.Enabled = false;
             }
@@ -198,14 +198,20 @@ namespace QuanLyKhachSan
             if (tb_NhapTenPhong.Text == "" || cb_LoaiPhong.Text == "" || cb_DonGia.Text == "" )
             {
                 bt_Them.Enabled = false;
-                ResetButton();
             }
             else
             {
-                bt_Them.Enabled = true;
+                if (DaChonPhongCanSua() == false)
+                {
+                    bt_Them.Enabled = true;
+                }
+                else
+                {
+                    bt_Them.Enabled = false;
+                }
             }
         }
-
+        
         private void cb_LoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (bt_Sua.Enabled == true || m_IsSua == true)
@@ -218,13 +224,20 @@ namespace QuanLyKhachSan
             }
             else
             {
-                bt_Them.Enabled = true;
+                if (DaChonPhongCanSua() == false)
+                {
+                    bt_Them.Enabled = true;
+                }
+                else
+                {
+                    bt_Them.Enabled = false;
+                }
             }
         }
 
         private void cb_DonGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (bt_Sua.Enabled == true || m_IsSua == true)
+            if (m_IsSua == true)
             {
                 bt_Them.Enabled = false;
                 return;
@@ -236,7 +249,14 @@ namespace QuanLyKhachSan
             }
             else
             {
-                bt_Them.Enabled = true;
+                if (DaChonPhongCanSua() == false)
+                {
+                    bt_Them.Enabled = true;
+                }
+                else
+                {
+                    bt_Them.Enabled = false;
+                }
             }
         }
 
@@ -317,11 +337,6 @@ namespace QuanLyKhachSan
 
         private void bt_Luu_Click(object sender, EventArgs e)
         {
-            if (m_IsThem == false && m_IsSua == false && m_IsXoa == false)
-            {
-                bt_Luu.Enabled = false;
-                return;
-            }
 
             if (m_IsThem == true)
             {
@@ -430,6 +445,7 @@ namespace QuanLyKhachSan
 
         public void LuuPhongDangSuaVaoCSDL()
         {
+            bt_Them.Enabled = false;
             int iSelected = -1;
             for (int i = 0; i < lv_DanhMucPhong.Items.Count; i++)
 			{
@@ -442,13 +458,15 @@ namespace QuanLyKhachSan
 
             if (iSelected < 0 || iSelected >= lv_DanhMucPhong.Items.Count )
 	        {
-                if (tb_NhapTenPhong.Text == "" || cb_LoaiPhong.Text == "")
-	            {
-		            MessageBox.Show("Thiếu dữ liệu phòng.", "Thông báo", MessageBoxButtons.YesNo); 
-	            }
                 MessageBox.Show("Chọn dòng cần sửa.", "Thông báo", MessageBoxButtons.YesNo); 
 		        return;
 	        }
+
+            if (tb_NhapTenPhong.Text == "" || cb_LoaiPhong.Text == "")
+            {
+                MessageBox.Show("Thiếu dữ liệu phòng.", "Thông báo", MessageBoxButtons.YesNo);
+                return;
+            }
 
             string IdPhongCu = lv_DanhMucPhong.Items[iSelected].SubItems[col_Phong.DisplayIndex].Text;
             if (KiemTraPhongDangSua(iSelected, IdPhongCu) == true)

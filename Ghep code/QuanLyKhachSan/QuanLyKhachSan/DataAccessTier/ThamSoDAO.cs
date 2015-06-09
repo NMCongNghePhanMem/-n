@@ -38,7 +38,6 @@ namespace DataAccessTier
             return null;
         }
 
-        //chưa làm procedure
         public bool ThemThamSoMoi(ThamSoDTO _thamSo)
         {
             try
