@@ -33,12 +33,12 @@
             this.cboNam = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.btnTraCuu = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnTraCuu = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -91,6 +91,25 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "STT";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Loại phòng";
+            this.columnHeader2.Width = 110;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Doanh thu";
+            this.columnHeader3.Width = 89;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tỉ lệ";
+            this.columnHeader4.Width = 84;
+            // 
             // btnTraCuu
             // 
             this.btnTraCuu.Location = new System.Drawing.Point(143, 230);
@@ -111,25 +130,6 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "STT";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Loại phòng";
-            this.columnHeader2.Width = 110;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Doanh thu";
-            this.columnHeader3.Width = 89;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Tỉ lệ";
-            this.columnHeader4.Width = 84;
-            // 
             // FormTraCuuBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -142,7 +142,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboThang);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "FormTraCuuBaoCao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormTraCuuBaoCao";
             this.Load += new System.EventHandler(this.FormTraCuuBaoCao_Load);
             this.ResumeLayout(false);

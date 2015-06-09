@@ -298,7 +298,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "FormLapHoaDonThanhToan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hóa đơn thanh toán";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLapHoaDonThanhToan_FormClosing);
             this.Load += new System.EventHandler(this.FormHoaDonThanhToan_Load);
