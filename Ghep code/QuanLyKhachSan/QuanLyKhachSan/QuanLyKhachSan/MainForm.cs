@@ -19,15 +19,19 @@ namespace QuanLyKhachSan
     public partial class MainForm : Form
     {
         public static ERole role;
+        public static String username;
+        public bool IsLogOut;
         public MainForm()
         {
             InitializeComponent();
+            IsLogOut = false;
             if (role == ERole.NhanVien)
             {
                 msQuanLyPhong.Visible = false;
                 msThietLap.Visible = false;
                 msTaiChinh.Visible = false;
-                msPhanQuyen.Visible = false;
+                msTaoMoi.Visible = false;
+                msXoaQuyenTruyCap.Visible = false;
             }
         }
 
@@ -81,13 +85,39 @@ namespace QuanLyKhachSan
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+<<<<<<< HEAD
             DangNhap.formDN.Close();
+=======
+            if (!IsLogOut)
+            {
+                Environment.Exit(1); 
+            }
+>>>>>>> origin/master
         }
 
-        private void msPhanQuyen_Click(object sender, EventArgs e)
+        private void msTaoMoi_Click(object sender, EventArgs e)
         {
             FormPhanQuyen formPhanQuyen = new FormPhanQuyen();
             formPhanQuyen.ShowDialog();
+        }
+
+        private void msDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            DoiMatKhau dmk = new DoiMatKhau();
+            dmk.ShowDialog();
+        }
+
+        private void msDangXuat_Click(object sender, EventArgs e)
+        {
+            DangNhap.getInstance().Show();
+            IsLogOut = true;
+            this.Close();
+        }
+
+        private void msXoaQuyenTruyCap_Click(object sender, EventArgs e)
+        {
+            XoaPhanQuyen m_XoaPQ = new XoaPhanQuyen();
+            m_XoaPQ.ShowDialog();
         }
 
 

@@ -124,6 +124,7 @@
             this.cb_TenPhong.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.cb_TenPhong.Name = "cb_TenPhong";
             this.cb_TenPhong.Size = new System.Drawing.Size(276, 24);
+            this.cb_TenPhong.Sorted = true;
             this.cb_TenPhong.TabIndex = 31;
             // 
             // dgvDanhSachKhach
@@ -283,6 +284,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.MaximizeBox = false;
             this.Name = "PhieuThuePhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phiếu Thuê Phòng";
             this.Load += new System.EventHandler(this.PhieuThuePhong_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKhach)).EndInit();

@@ -92,9 +92,14 @@ namespace QuanLyKhachSan
 
             if (e.ColumnIndex == 2)
             {
+<<<<<<< HEAD
                 if (dataGridView1.CurrentRow.Cells[3].Value != null)
                     if (dataGridView1.CurrentRow.Cells[3].Value.ToString() != "")
                         return;
+=======
+                if (dataGridView1.CurrentRow.Cells[3].Value.ToString() != "")
+                    return;
+>>>>>>> origin/master
                 for (int i = 0; i < PhieuThueVaPhongDaXoa.Count; i++)
                 {
                     if (PhieuThueVaPhongDaXoa[i].maPhong == null)
@@ -130,11 +135,23 @@ namespace QuanLyKhachSan
                     maPhieuThue = objChiTietHoaDon.MaPhieuThueKhongTonTaiCTHD(dataGridView1.CurrentRow.Cells[1].Value.ToString(), dateTimePicker1.Value);
                 if (maPhieuThue.Length == 0)
                 {
+<<<<<<< HEAD
                     MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.", "Thông báo !");
                     return;
                 }
                 //maHoaDonGanNhat = objHoaDon.MaHoaDonGanNhat();
                 cthd.MaHoaDon = txtMaHoaDon.Text;
+=======
+                    
+                    MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.");
+                    MessageBox.Show("Nhập sai phòng hoặc phòng chưa tồn tại.\nHoặc phòng đã thanh toán.\nHoặc ngày thanh toán nhỏ hơn ngày thuê.\nVui lòng kiểm tra lại thông tin.", "Thông báo !");
+                    return;
+                }
+                if (isThemHoaDon == true)
+                    cthd.MaHoaDon = maHoaDonGanNhat;
+                else
+                    cthd.MaHoaDon = cboMaHoaDon.Text;
+>>>>>>> origin/master
                 cthd.MaPhieuThue = maPhieuThue;
 
                 // Thêm chi tiết vào để lấy các giá trị tính toán, đưa vào Gridview, sau khi tính toán xong thì xóa.
