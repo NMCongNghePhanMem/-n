@@ -130,12 +130,9 @@
     <EmbeddedResource Include="DanhMucPhong.resx">
       <DependentUpon>DanhMucPhong.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Include="DoiMatKhau.resx">
       <DependentUpon>DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> origin/master
     <EmbeddedResource Include="FormLapBaoCaoDoanThuTheoThang.resx">
       <DependentUpon>FormLapBaoCaoDoanThuTheoThang.cs</DependentUpon>
     </EmbeddedResource>

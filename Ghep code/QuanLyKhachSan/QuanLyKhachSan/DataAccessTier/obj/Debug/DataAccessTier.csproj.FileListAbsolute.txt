@@ -1,0 +1,7 @@
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.dll
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataAccessTier.pdb
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataTransferObject.dll
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\bin\Debug\DataTransferObject.pdb
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.csprojResolveAssemblyReference.cache
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.dll
+E:\GitHub bản sao\Do-an\Ghep code\QuanLyKhachSan\QuanLyKhachSan\DataAccessTier\obj\Debug\DataAccessTier.pdb
